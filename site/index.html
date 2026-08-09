@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The March — corridor terrain spike</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --ink: #1f1a14;
+    --paper: #f5f2ec;
+    --muted: #6b6257;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e8e2d8; --paper: #17140f; --muted: #a49a8c; }
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.6 Georgia, "Times New Roman", serif;
+  }
+  main { max-width: 72rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+  .kicker { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
+  figure { margin: 0; }
+  img { width: 100%; height: auto; display: block; border: 1px solid var(--muted); }
+  figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.6rem; }
+  p.note { max-width: 46rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>The March</h1>
+  <p class="kicker">Data spike: real topography for the Rhone-to-Alps corridor (4.0–8.0 E, 43.5–46.0 N)</p>
+  <figure>
+    <img src="poc/corridor-map.png"
+         alt="Shaded-relief map of southeastern Gaul from the Rhone valley to the western Alps, with ancient places, Roman roads, and the ancient shoreline overlaid">
+    <figcaption>
+      Every feature traces to source data; nothing is drawn freehand.
+      Elevation: NASA SRTM et al. via Terrain Tiles on AWS (~120 m grid).
+      Ancient places: Pleiades gazetteer (CC-BY), 705 places in the corridor;
+      dots are Pleiades representative points, larger dots are settlements.
+      Roman roads and ancient shoreline: Ancient World Mapping Center geodata
+      (ODbL), derived from the Barrington Atlas.
+      Labels name a small curated subset by Pleiades ID; the six candidate
+      passes Pleiades titles “Pass of the Alpes Graiae” are deliberately left
+      as unlabeled candidate dots.
+      Provenance detail: <code>data/geo/SOURCES.md</code> in the repository.
+    </figcaption>
+  </figure>
+  <p class="note">
+    This page is a proof of concept, not a chapter. It exists to show that the
+    corridor's real terrain, ancient places, roads, and shoreline can be
+    rendered from public source data end to end. The interactive experience,
+    provenance markers, and chapter content come later and are governed by the
+    conventions document in <code>docs/</code>.
+  </p>
+</main>
+</body>
+</html>
