@@ -23,6 +23,31 @@ Gaps section at the bottom, not papered over.
   7,576 places in the dump carry no coordinates at all and are excluded as
   unplaceable (Pleiades itself does not locate them; we do not invent coordinates).
 
+## 2. AWMC geodata (Roman roads, ancient shoreline)
+
+- **What**: Roads and coastline/shoreline GeoJSON from the Ancient World Mapping
+  Center working data set. Roads derive from the Barrington Atlas of the Greek
+  and Roman World; the shoreline derives from VMAP0 with AWMC modifications
+  (per the READMEs archived in `raw/awmc-repo-README.md` and
+  `raw/awmc-shoreline-README.md`).
+- **Origin URLs**:
+  - https://raw.githubusercontent.com/AWMC/geodata/master/Cultural-Data/roads/roads.geojson
+  - https://raw.githubusercontent.com/AWMC/geodata/master/Physical%20Data/shoreline/shoreline.geojson
+  (repo: https://github.com/AWMC/geodata)
+- **Date pulled**: 2026-08-09.
+- **License**: ODC Open Database License (ODbL) 1.0, per the repo README
+  (archived at `raw/awmc-repo-README.md`).
+- **Raw files** (committed; small enough for git, force-added past the raw/ ignore):
+  - `raw/awmc-roads.geojson`, 5,281,885 bytes,
+    sha256 `d28e5a1675a59df0037a84e6a8dc5f6b8efc75dbbd74a76ace59dd8285604516`
+  - `raw/awmc-shoreline.geojson`, 19,009,980 bytes,
+    sha256 `1497761447e0c11d01f50d3795647494d554b7d492b2f9ca64385d5da2a69212`
+- **Processed files** (committed), produced by `scripts/clip_awmc.py`; feature
+  selection by bbox overlap, geometries unmodified from source:
+  - `processed/awmc-roads-corridor.geojson` — 137 of 3,166 road features.
+  - `processed/awmc-shoreline-corridor.geojson` — 8 of 9,901 shoreline features
+    (only the southern edge of the corridor touches the Mediterranean).
+
 ## Gaps
 
 None recorded yet.
