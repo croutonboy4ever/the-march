@@ -22,6 +22,12 @@ Gaps section at the bottom, not papered over.
   4.0–8.0 E, 43.5–46.0 N. Produced by `scripts/extract_pleiades.py`.
   7,576 places in the dump carry no coordinates at all and are excluded as
   unplaceable (Pleiades itself does not locate them; we do not invent coordinates).
+  Since 2026-08-09 each feature also carries `locationCertainty`: the
+  worst-case `associationCertainty` across the place's Pleiades location
+  records (`certain` / `less-certain` / `uncertain`; null where Pleiades
+  records no certainty). Corridor counts: 675 certain, 24 less-certain,
+  1 uncertain, 5 null. Anything non-certain renders as an uncertain marker,
+  per conventions section 6.
 
 ## 2. AWMC geodata (Roman roads, ancient shoreline)
 

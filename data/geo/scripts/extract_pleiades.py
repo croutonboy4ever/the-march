@@ -64,6 +64,23 @@ def in_bbox(pt):
     return BBOX[0] <= lon <= BBOX[2] and BBOX[1] <= lat <= BBOX[3]
 
 
+# Worst-first ranking for Pleiades associationCertainty values: a place is
+# only as located as its least certain location record.
+CERTAINTY_RANK = ["uncertain", "less-certain", "certain"]
+
+
+def location_certainty(place):
+    certs = {
+        loc.get("associationCertainty")
+        for loc in place.get("locations", [])
+        if loc.get("associationCertainty")
+    }
+    for level in CERTAINTY_RANK:
+        if level in certs:
+            return level
+    return None
+
+
 def to_feature(place):
     names = [
         {
@@ -83,6 +100,7 @@ def to_feature(place):
             "description": place.get("description"),
             "placeTypes": place.get("placeTypes", []),
             "names": names,
+            "locationCertainty": location_certainty(place),
         },
     }
 
