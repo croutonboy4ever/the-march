@@ -91,6 +91,20 @@ Gaps section at the bottom, not papered over.
   1898 (map) vs 1909 (true), Barre des Ecrins 3995 vs 4102 (summit reads low
   under block averaging, as expected), Col du Mont Cenis 2113 vs 2081,
   Avignon valley floor 30 vs ~20.
+- **Visualization-only rule** (conventions v1.0 section 4, amendment approved
+  2026-08-09): the downsampled render grid exists to draw relief, never to
+  source a displayed elevation figure. Displayed figures come from the raw
+  1-arc-second tiles or an authoritative reference. `scripts/audit_elevation.py`
+  reads both side by side; run of 2026-08-09 at the benchmark points
+  (full-res tile / render grid / IGN reference): Mont Ventoux 1901 / 1898 /
+  1909; Barre des Ecrins 3917 / 3903 / 4102; Col du Mont Cenis 2094 / 2096 /
+  2081; Avignon 30 / 29 / ~21. Note that even the full-res tiles under-read
+  sharp summits (SRTM cell averaging): where a summit or pass elevation is
+  displayed to the reader, prefer the named authoritative reference and
+  anchor it. Audit of the POC page for the same amendment: the page and
+  render display no per-place elevation figures at all; the only elevation
+  numbers on the artifact are the legend's color-scale ticks, which describe
+  the render's color mapping, not any place, and are labeled as such.
 
 ## 4. AWMC water: rivers and inland water
 
