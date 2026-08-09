@@ -1,0 +1,10 @@
+# Python
+.venv/
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Large raw geodata downloads: kept on disk, provenance + checksums in
+# data/geo/SOURCES.md. Small raw files are force-added case by case.
+data/geo/raw/
