@@ -86,16 +86,61 @@ Gaps section at the bottom, not papered over.
   under block averaging, as expected), Col du Mont Cenis 2113 vs 2081,
   Avignon valley floor 30 vs ~20.
 
+## 4. AWMC water: rivers and inland water
+
+- **What**: River linework and inland-water (lake/swamp/dry-lake) polygons
+  from the AWMC geodata set.
+  - **Rivers**: `rivers/awmc-osm-rivers.{shp,dbf,...}` from the repo-root
+    archive "Physical Shapefiles Apr 2024.zip". Finding recorded here so the
+    next pull does not repeat the search: the repo's unzipped
+    `Physical Data/inland_water/` directory contains **no river linework at
+    all** (it is lake/swamp polygons, checked 2026-08-09, zero name matches
+    for Rhone/Durance/Isere in any spelling); the river linework exists only
+    inside the Apr 2024 zip. Attribution fields mark the corridor rivers as
+    Barrington-derived (origin BAMap17/BAMap18/BAMap15) with AWMC/OSM
+    curation (`awmc_mod=1`), keyed to Pleiades IDs in a `pid` field.
+  - **Inland water**: `Physical Data/inland_water/inland-water-OSM.geojson`
+    (lake/swamp/dry-lake polygons; OSM-derived per filename, AWMC-modified).
+- **Origin URLs**:
+  - https://raw.githubusercontent.com/AWMC/geodata/master/Physical%20Shapefiles%20Apr%202024.zip
+  - https://raw.githubusercontent.com/AWMC/geodata/master/Physical%20Data/inland_water/inland-water-OSM.geojson
+  (repo: https://github.com/AWMC/geodata)
+- **Date pulled**: 2026-08-09.
+- **License**: ODC Open Database License (ODbL) 1.0, per the repo README
+  (archived at `raw/awmc-repo-README.md`).
+- **Raw files** (on disk, gitignored; too large for git):
+  - `raw/awmc-physical-shapefiles-2024-04.zip`, 20,512,878 bytes,
+    sha256 `d64b768e520f61e53b32013c262bb6cfeca7cca92cfacadfc828071d812bf0ec`
+  - `raw/awmc-rivers/awmc-osm-rivers.shp`, 10,142,520 bytes,
+    sha256 `ad1e1b7ada562d7ed1781e3a87ac5d5be593cf4d29a7a8466f4235198f939d2d`
+  - `raw/awmc-rivers/awmc-osm-rivers.dbf`, 19,447,250 bytes,
+    sha256 `3aa5f80ed63c37b75687064702a8e253cbd8792981cefc10108c2b055e144d0d`
+  - `raw/awmc-inland-water-OSM.geojson`, 15,946,794 bytes,
+    sha256 `a6228834c7149277da8619efa6ce0c042ff54d5eb5d14c7e1b79f36d361205e5`
+- **Processed files** (committed), produced by `scripts/extract_awmc_water.py`;
+  geometries unmodified from source:
+  - `processed/awmc-rivers-corridor.geojson` — the Rhone (Rhodanus, Pleiades
+    148168), Durance (Druentia, 148069), and Isere (Isara, 167793), selected
+    by Pleiades ID, never by name string; plus 5 unnamed segments the source
+    itself annotates `notes="Rhodanus delta"` (Barrington Map 15 delta
+    distributaries, no pid of their own).
+  - `processed/awmc-inland-water-corridor.geojson` — 615 of 6,393 polygons
+    whose bounding box overlaps the corridor.
+- **Authority note**: AWMC linework is the authority for ancient-period river
+  courses; modern hydrology, like modern SRTM terrain, is real but modern;
+  the Rhone's course and delta have shifted since 218 BC.
+
 ## Gaps
 
 Known gaps as of 2026-08-09. All sources targeted by the spike were reachable;
 these are data-shape gaps, not fetch failures.
 
-1. **No river linework yet.** The Rhone and Durance read clearly in the relief
-   but are not drawn as line features. AWMC publishes inland-water data
-   (`Physical Data/inland_water/` in the same repo) that the spike did not pull;
-   the spec asked for coastlines and roads only. Pull and clip it when the map
-   journey needs named rivers.
+1. **Resolved 2026-08-09: river linework pulled.** The Rhone, Durance, and
+   Isere are now extracted (see section 4) and drawn on the POC render. The
+   gap as originally recorded pointed at `Physical Data/inland_water/`; that
+   directory turned out to hold no river linework (lakes only) — the rivers
+   came from the repo's Apr 2024 physical-shapefiles zip instead, as section 4
+   records.
 2. **Modern topography, ancient labels.** SRTM is present-day terrain. For this
    corridor that is acceptable (mountain relief is effectively unchanged), but
    the Rhone delta around the Camargue has shifted since 218 BC, which is why
