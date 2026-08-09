@@ -88,4 +88,29 @@ Gaps section at the bottom, not papered over.
 
 ## Gaps
 
-None recorded yet.
+Known gaps as of 2026-08-09. All sources targeted by the spike were reachable;
+these are data-shape gaps, not fetch failures.
+
+1. **No river linework yet.** The Rhone and Durance read clearly in the relief
+   but are not drawn as line features. AWMC publishes inland-water data
+   (`Physical Data/inland_water/` in the same repo) that the spike did not pull;
+   the spec asked for coastlines and roads only. Pull and clip it when the map
+   journey needs named rivers.
+2. **Modern topography, ancient labels.** SRTM is present-day terrain. For this
+   corridor that is acceptable (mountain relief is effectively unchanged), but
+   the Rhone delta around the Camargue has shifted since 218 BC, which is why
+   the AWMC ancient shoreline and the modern SRTM sea edge disagree slightly
+   at the coast. The experience should draw the AWMC line, not the SRTM edge,
+   wherever the two conflict on ancient-period questions.
+3. **7,576 Pleiades places have no coordinates** dump-wide and are excluded as
+   unplaceable. Corridor-relevant places among them cannot appear on the map
+   until Pleiades locates them; they are not invented.
+4. **Uncertain pass identifications are structural, not resolved.** Pleiades
+   itself carries six candidate locations titled "Pass of the Alpes Graiae"
+   (west of Segusio) plus distinct pass places (Matrona/Montgenèvre, Alpis
+   Graia/Little St Bernard, Alpis Cottia). The POC renders candidates as
+   unlabeled dots; the real experience must present the Alpine-route debate
+   per conventions doc sections 2 and 6.
+5. **DEM negative values offshore are ETOPO1 bathymetry**, not errors; the
+   renderer masks elevation <= 0 as sea. Any future shoreline-accurate
+   rendering must use the AWMC line instead of the 0 m contour (see gap 2).
