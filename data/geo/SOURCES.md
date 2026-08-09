@@ -173,9 +173,15 @@ these are data-shape gaps, not fetch failures.
 4. **Uncertain pass identifications are structural, not resolved.** Pleiades
    itself carries six candidate locations titled "Pass of the Alpes Graiae"
    (west of Segusio) plus distinct pass places (Matrona/Montgenèvre, Alpis
-   Graia/Little St Bernard, Alpis Cottia). The POC renders candidates as
-   unlabeled dots; the real experience must present the Alpine-route debate
-   per conventions doc sections 2 and 6.
+   Graia/Little St Bernard, Alpis Cottia). Since 2026-08-09 the POC renders
+   the six candidates as red hollow rings keyed C1-C6 by Pleiades ID (key in
+   the site page caption), and every place Pleiades rates below "certain" as
+   a grey hollow ring. Still open: Pleiades/DARMC name no modern pass and no
+   scholarly backer for the six candidates (single exception: 963101022
+   carries a Pleiades link to Col du Petit Mont-Cenis whose GeoHack longitude
+   is truncated to 6.0, skewing its representative point west; rendered
+   as given, nothing moved). The scholar-by-scholar Alpine-route debate
+   still has to enter from the fact base per conventions sections 2 and 6.
 5. **DEM negative values offshore are ETOPO1 bathymetry**, not errors; the
    renderer masks elevation <= 0 as sea. Any future shoreline-accurate
    rendering must use the AWMC line instead of the 0 m contour (see gap 2).

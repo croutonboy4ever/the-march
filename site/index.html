@@ -35,17 +35,42 @@
   <p class="kicker">Data spike: real topography for the Rhone-to-Alps corridor (4.0–8.0 E, 43.5–46.0 N)</p>
   <figure>
     <img src="poc/corridor-map.png"
-         alt="Shaded-relief map of southeastern Gaul from the Rhone valley to the western Alps, with ancient places, Roman roads, and the ancient shoreline overlaid">
+         alt="Shaded-relief map of southeastern Gaul from the Rhone valley to the western Alps, with ancient places, Roman roads, rivers, inland water, and the ancient shoreline overlaid, plus a legend beneath the map">
     <figcaption>
       Every feature traces to source data; nothing is drawn freehand.
-      Elevation: NASA SRTM et al. via Terrain Tiles on AWS (~120 m grid).
+      The legend beneath the map covers every marker and line type drawn;
+      every distinction it claims is visible in the render.
+      Elevation: NASA SRTM et al. via Terrain Tiles on AWS (~120 m render
+      grid). The render grid is visualization-only (conventions §4): no
+      elevation figure on this page is read off it, and the color-scale
+      numbers describe the color mapping, not any place's elevation.
       Ancient places: Pleiades gazetteer (CC-BY), 705 places in the corridor;
-      dots are Pleiades representative points, larger dots are settlements.
-      Roman roads and ancient shoreline: Ancient World Mapping Center geodata
-      (ODbL), derived from the Barrington Atlas.
-      Labels name a small curated subset by Pleiades ID; the six candidate
-      passes Pleiades titles “Pass of the Alpes Graiae” are deliberately left
-      as unlabeled candidate dots.
+      dots are Pleiades representative points; solid settlement dots are
+      drawn at four times the marker area of other places; hollow grey rings
+      mark the 25 places whose location Pleiades itself rates below
+      “certain.”
+      Rivers and inland water: Ancient World Mapping Center geodata (ODbL);
+      the Rhone (Rhodanus, Pleiades 148168), Durance (Druentia, 148069), and
+      Isère (Isara, 167793) are selected by Pleiades ID, with five delta
+      segments the source annotates “Rhodanus delta.” AWMC linework is the
+      authority for ancient-period river courses; modern hydrology, like
+      modern SRTM terrain, is real but modern; the Rhone's course and delta
+      have shifted since 218 BC.
+      Roman roads and ancient shoreline: AWMC (ODbL), derived from the
+      Barrington Atlas.
+      Contested passes: the red hollow rings C1–C6 are the six candidate
+      locations Pleiades titles “Pass of the Alpes Graiae” (west of Segusio),
+      keyed by Pleiades ID:
+      C1&nbsp;264120821, C2&nbsp;963101021, C3&nbsp;963101022,
+      C4&nbsp;963101023, C5&nbsp;963101024, C6&nbsp;963101025.
+      Pleiades and DARMC name no modern pass and no scholarly backer for any
+      of them, with one exception: C3 carries a Pleiades link to Col du Petit
+      Mont-Cenis whose GeoHack longitude is visibly truncated (6.0°), which
+      skews that representative point west into the Arc valley; the ring is
+      drawn on the representative point exactly as Pleiades gives it, nothing
+      moved. Which scholars back which Alpine crossing enters later from the
+      fact base, with attributions, per conventions §2 and §6; no backer is
+      named here because none is named in the map's source data.
       Provenance detail: <code>data/geo/SOURCES.md</code> in the repository.
     </figcaption>
   </figure>
