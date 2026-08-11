@@ -22,7 +22,7 @@ what the claim says before it is written down. This supersedes the older practic
 - Notebook: **Carthaginian Conflicts** (`f1b5cae8-7652-4e4e-9ae0-d6bf8f74d3e8`), 149 sources.
 - Ancient primary texts used for this chapter:
   - **Polybius**, *Histories* (Shuckburgh trans., Gutenberg Vol. I) — `afc8c222-7f8d-4ea6-af7e-bd290815b984`. Book III chs. 42–56 carry the whole crossing.
-  - **Livy**, *History of Rome* Books XXI–XXV (Edmonds trans., scanned pdf) — `abe8d234-1163-4918-95da-494dee9cfba3`. Book XXI carries the crossing. OCR text; quotes transcribed faithfully, line-break hyphenation joined, words unchanged.
+  - **Livy**, *History of Rome* Books XXI–XXV (Church & Brodribb trans., Macmillan; scanned pdf) — `abe8d234-1163-4918-95da-494dee9cfba3`. Book XXI carries the crossing. OCR text; quotes transcribed faithfully, line-break hyphenation joined, words unchanged.
   - **Cornelius Nepos**, *Life of Hannibal* (Latin text + notes) — `46d26c93-2f36-4ad5-99dd-305f89692f36`. One sentence, ch. 3.4.
 - Markers are the three canonical ones in `docs/conventions-v1.0.md` §1: **attested**
   (present in the ancient sources, carries a source anchor), **inferred** (reasoned
@@ -303,6 +303,12 @@ gaps shown as gaps).
   (*leukopetron*); that is Polybius's detail only. The earlier claim of a Livy parallel,
   taken from an ungrounded chat answer, is withdrawn at TC-11.
 - Nothing from this batch remains unconfirmed.
+- **Independently re-verified 2026-08-11 (second pass).** All nine Livy parallel anchors
+  (TC-03, TC-04, TC-05, TC-07, TC-10, TC-11, TC-12, TC-13, TC-14) were located again by
+  content search in `abe8d234` via `source_read` and each is present verbatim; the
+  distinctive anchors (TC-08, TC-09b, TC-15b, TC-16, TC-17b) re-confirmed in passing. The
+  same pass corrected the fact-base translator attribution for `abe8d234` from "Edmonds"
+  to Church & Brodribb (Macmillan), read off the source's own title page.
 
 ---
 
