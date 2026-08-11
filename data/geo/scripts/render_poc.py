@@ -24,6 +24,12 @@ distinction the legend claims must be verifiably visible in the render):
                           "Pass of the Alpes Graiae" (west of Segusio),
                           keyed C1-C6 by Pleiades ID; structurally contested
                           per conventions section 6
+  - violet hollow diamond the seven passes proposed by scholars as Hannibal's
+                          218 BC crossing, keyed R1-R7; a separate ROUTE
+                          debate (which pass did the army cross) from the
+                          C-ring LOCATION debate (where is this one candidate
+                          place). Backers and arguments are in
+                          data/content/02/route-candidates.md.
 
 The terrain color scale in the legend is visualization-only (conventions
 v1.0 section 4): its numbers describe the color mapping of the render grid,
@@ -62,6 +68,7 @@ C_DOT = "#1f1a14"
 C_DOT_SMALL = "#5a5145"
 C_RING_UNCERTAIN = "#3a342c"
 C_RING_CANDIDATE = "#a02c2c"
+C_ROUTE = "#6a3d9a"
 C_HALO = "#f5f4f2"
 
 # Marker areas in points^2. Settlement vs other is a claimed size encoding:
@@ -70,6 +77,7 @@ S_SETTLEMENT = 20
 S_OTHER = 5
 S_RING = 46
 S_RING_CANDIDATE = 60
+S_ROUTE = 70
 
 # Presentational only: which places get a text label on the POC, keyed by
 # Pleiades ID (titles are not unique: two places are titled "Brigantio", and
@@ -116,6 +124,39 @@ CANDIDATE_LABEL_OFFSETS = {
     "963101023": (0.025, -0.05),  # C4: below-right
     "963101024": (0.03, 0.03),    # C5: above-right
     "963101025": (-0.075, 0.0),   # C6: left
+}
+
+# Route-debate layer: which of these seven passes Hannibal crossed in 218 BC
+# (distinct from the C-ring layer above, which is about locating one
+# Pleiades-named candidate place, not about route choice). Four resolve to
+# existing Pleiades points (pid given, coordinate pulled from the loaded
+# places data below, never re-typed); three have no Pleiades or AWMC record
+# and are placed from the fallback lon/lat, sourced in
+# data/geo/SOURCES.md section 5 (Wikidata, pulled 2026-08-11). Backers and
+# arguments for each are in data/content/02/route-candidates.md.
+# Entry shape: (key, name, Pleiades pid or None, fallback (lon, lat) or None).
+ROUTE_CANDIDATES = [
+    ("R1", "Col de la Traversette", None, (7.066361, 44.710500)),
+    ("R2", "Col de Clapier", None, (6.922778, 45.167500)),
+    ("R3", "Col du Montgenevre", "167826", None),
+    ("R4", "Little St Bernard (Alpis Graia)", "167639", None),
+    ("R5", "Great St Bernard (Alpis Poenina)", "167932", None),
+    ("R6", "Col de la Larche", None, (6.898611, 44.421667)),
+    ("R7", "Mont Cenis / Petit Mont-Cenis", None, (6.9054, 45.2595)),
+]
+# Presentational: per-candidate label offsets (dx, dy in degrees). R2 sits
+# ~0.001 deg from Pleiades C-candidate 264120821 (C1, see SOURCES.md s.5) so
+# its key is pushed the opposite way from C1's default offset to stay legible;
+# R3/R4 sit on points that already carry a settlement text label (Matrona /
+# Alpis Graia in LABELS) so their keys are pushed clear of that label's side.
+ROUTE_LABEL_OFFSETS = {
+    "R1": (0.03, 0.025),
+    "R2": (-0.045, -0.035),   # away from C1's default upper-right offset
+    "R3": (0.02, -0.05),      # below; "Matrona" label sits to the right
+    "R4": (0.03, 0.0),        # right; "Alpis Graia" label sits to the left
+    "R5": (0.03, 0.025),
+    "R6": (0.03, 0.025),
+    "R7": (-0.03, -0.04),
 }
 
 # Presentational: river name label positions (deg) and rotation. The linework
@@ -247,6 +288,7 @@ def main():
     # pass candidates (red rings), non-certain locations (grey rings),
     # certain settlements (large solid), other certain places (small solid).
     places = load_geojson("pleiades-places-corridor.geojson")["features"]
+    by_pid = {ft["properties"]["pid"]: ft for ft in places}
     setts, others, uncertain, candidates = [], [], [], []
     for ft in places:
         lon, lat = ft["geometry"]["coordinates"][:2]
@@ -304,8 +346,48 @@ def main():
             path_effects=[patheffects.withStroke(linewidth=2.0, foreground=C_HALO + "cc")],
         )
 
+    # Route candidates: which pass Hannibal crossed (separate ROUTE debate
+    # from the C-ring LOCATION debate above). Hollow diamonds, keyed R1-R7.
+    # Coordinates: Pleiades pid where one exists, else the fallback recorded
+    # in ROUTE_CANDIDATES / SOURCES.md section 5. Nothing drawn freehand.
+    route_points = []
+    for key, name, pid, fallback in ROUTE_CANDIDATES:
+        if pid is not None:
+            ft = by_pid.get(pid)
+            if ft is None:
+                print(f"route candidate {key} skipped, pid not in data: {pid!r}")
+                continue
+            lon, lat = ft["geometry"]["coordinates"][:2]
+        else:
+            lon, lat = fallback
+        route_points.append((key, name, lon, lat))
+    if route_points:
+        xs, ys = zip(*[(lon, lat) for _, _, lon, lat in route_points])
+        ax.scatter(
+            xs,
+            ys,
+            s=S_ROUTE,
+            marker="D",
+            facecolors="none",
+            edgecolors=C_ROUTE,
+            lw=1.6,
+            zorder=7,
+        )
+        for key, name, lon, lat in route_points:
+            dx, dy = ROUTE_LABEL_OFFSETS.get(key, (0.03, 0.025))
+            ax.annotate(
+                key,
+                (lon, lat),
+                xytext=(lon + dx, lat + dy),
+                ha="left" if dx >= 0 else "right",
+                fontsize=8,
+                fontweight="bold",
+                color=C_ROUTE,
+                zorder=8,
+                path_effects=[patheffects.withStroke(linewidth=2.0, foreground=C_HALO + "cc")],
+            )
+
     # Labels for the curated subset.
-    by_pid = {ft["properties"]["pid"]: ft for ft in places}
     for pid, (label, side, dy) in LABELS.items():
         ft = by_pid.get(pid)
         if ft is None:
@@ -373,6 +455,10 @@ def main():
                markeredgecolor=C_RING_CANDIDATE, markeredgewidth=1.6,
                markersize=np.sqrt(S_RING_CANDIDATE),
                label="Graian pass candidate C1–C6 (contested; key in caption)"),
+        Line2D([], [], marker="D", ls="none", markerfacecolor="none",
+               markeredgecolor=C_ROUTE, markeredgewidth=1.6,
+               markersize=np.sqrt(S_ROUTE),
+               label="Hannibal route candidate R1–R7 (contested; key on page)"),
         Line2D([], [], color=C_ROAD, lw=1.4, label="Roman road (AWMC)"),
         Line2D([], [], color=C_SHORE, lw=1.4, label="ancient shoreline (AWMC)"),
         Line2D([], [], color=C_RIVER, lw=1.8,
@@ -415,7 +501,8 @@ def main():
     print(f"wrote {os.path.abspath(OUT)} ({os.path.getsize(OUT):,} bytes)")
     print(
         f"places drawn: {len(setts)} settlements, {len(others)} other, "
-        f"{len(uncertain)} uncertain rings, {len(candidates)} pass candidates"
+        f"{len(uncertain)} uncertain rings, {len(candidates)} pass candidates, "
+        f"{len(route_points)} route candidates"
     )
     print(f"rivers: {n_river_feats} features; lakes: {n_lakes} polygons")
 
