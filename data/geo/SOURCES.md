@@ -150,6 +150,42 @@ Gaps section at the bottom, not papered over.
   courses; modern hydrology, like modern SRTM terrain, is real but modern;
   the Rhone's course and delta have shifted since 218 BC.
 
+## 5. Alpine pass coordinates (route-candidate passes without Pleiades or AWMC entries)
+
+- **What**: Point coordinates for the seven Hannibal-route pass candidates
+  (R1-R7) named in the project fact base. Four resolve to existing Pleiades
+  entries; three do not, and are placed from Wikidata instead.
+  - R3 Col du Montgenèvre -> Pleiades 167826 (*Matrona*, mountain;
+    description "Mont-Genèvre").
+  - R4 Little St Bernard -> Pleiades 167639 (*Alpis Graia*, settlement/pass).
+  - R5 Great St Bernard -> Pleiades 167932 (*Summus P(o)eninus* / *Alpis
+    Poenina*, station/pass).
+  - R7 Mont Cenis / Petit Mont-Cenis -> no Pleiades or AWMC entry; reuses the
+    IGN reference point already recorded in section 3's elevation-audit
+    benchmarks (Col du Mont Cenis, 45.2595 N, 6.9054 E) rather than pulling a
+    new source for the same named pass.
+  - R1 Col de la Traversette, R2 Col de Clapier, R6 Col de la Larche have no
+    Pleiades place record and no AWMC feature. Coordinates for these three
+    come from Wikidata, a structured, publicly editable gazetteer whose
+    coordinate statements are individually referenced and CC0-licensed.
+- **Origin URLs** (Wikidata, for R1/R2/R6):
+  - https://www.wikidata.org/wiki/Q1107458 (Col de la Traversette)
+  - https://www.wikidata.org/wiki/Q488473 (Col de Clapier / Col du Clapier)
+  - https://www.wikidata.org/wiki/Q1107381 (Maddalena Pass / Col de Larche /
+    Colle della Maddalena)
+- **Date pulled**: 2026-08-11.
+- **License**: CC0 1.0 (Wikidata content).
+- **Values pulled** (decimal degrees, WGS84):
+  - Col de la Traversette (Q1107458): 44.710500 N, 7.066361 E.
+  - Col de Clapier (Q488473): 45.167500 N, 6.922778 E.
+  - Col de la Larche / Maddalena Pass (Q1107381): 44.421667 N, 6.898611 E.
+- **Coincidence noted, not adjusted**: R2's Wikidata coordinate falls within
+  ~0.001 degree (~100 m) of Pleiades candidate C1 (264120821, one of the six
+  "Pass of the Alpes Graiae" location candidates from section 1). The two
+  uncertainty layers (Pleiades location candidate vs. modern route debate)
+  coincide in space at that point. Both markers render at their own recorded
+  coordinates; nothing was moved to make this so or to avoid the overlap.
+
 ## Gaps
 
 Known gaps as of 2026-08-09. All sources targeted by the spike were reachable;
