@@ -8,6 +8,7 @@ Inputs : data/geo/raw/awmc-rivers/awmc-osm-rivers.{shp,dbf}
          data/geo/raw/awmc-inland-water-OSM.geojson
            (lake/swamp/dry-lake polygons)
 Outputs: data/geo/processed/awmc-rivers-corridor.geojson
+         data/geo/processed/awmc-rivers-network-corridor.geojson
          data/geo/processed/awmc-inland-water-corridor.geojson
 
 River selection is keyed by Pleiades ID, never by name string:
@@ -15,6 +16,12 @@ River selection is keyed by Pleiades ID, never by name string:
 plus the five segments the source itself annotates notes="Rhodanus delta"
 (Barrington Map 15 delta distributaries; they carry no pid of their own).
 Geometries are copied unmodified from the source; no clipping of linework.
+
+Network extension (added 2026-08-17): every remaining river feature whose
+bounding box overlaps the corridor bbox goes to the separate network file,
+same bbox-overlap rule as the other clipped layers, geometries unmodified.
+The primary three-river file is unchanged so the POC render and its script
+stay exactly reproducible.
 
 Inland-water features are kept when their bounding box overlaps BBOX,
 geometries unmodified, same selection rule as scripts/clip_awmc.py.
@@ -39,6 +46,9 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW_RIVERS = os.path.join(ROOT, "raw", "awmc-rivers", "awmc-osm-rivers")
 RAW_WATER = os.path.join(ROOT, "raw", "awmc-inland-water-OSM.geojson")
 OUT_RIVERS = os.path.join(ROOT, "processed", "awmc-rivers-corridor.geojson")
+OUT_NETWORK = os.path.join(
+    ROOT, "processed", "awmc-rivers-network-corridor.geojson"
+)
 OUT_WATER = os.path.join(ROOT, "processed", "awmc-inland-water-corridor.geojson")
 
 
@@ -131,6 +141,7 @@ def main():
     shapes = read_shp_polylines(RAW_RIVERS + ".shp")
     assert len(recs) == len(shapes), "dbf/shp record count mismatch"
     features = []
+    network = []
     for rec, shape in zip(recs, shapes):
         if rec is None or shape is None:
             continue
@@ -138,6 +149,26 @@ def main():
         is_named = pid in RIVER_PIDS
         is_delta = rec.get("notes", "") == DELTA_NOTE
         if not (is_named or is_delta):
+            # Network extension: keep every other river feature whose
+            # bounding box overlaps the corridor, geometry unmodified.
+            xs = [p[0] for part in shape for p in part]
+            ys = [p[1] for part in shape for p in part]
+            if overlaps((min(xs), min(ys), max(xs), max(ys))):
+                network.append(
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "MultiLineString",
+                            "coordinates": shape,
+                        },
+                        "properties": {
+                            "pid": pid or None,
+                            "origin": rec.get("origin"),
+                            "notes": rec.get("notes") or None,
+                            "strabo_name": rec.get("Strabo_nam") or None,
+                        },
+                    }
+                )
             continue
         if is_named:
             ancient, modern = RIVER_PIDS[pid]
@@ -172,6 +203,27 @@ def main():
             indent=1,
         )
     print(f"rivers: {len(named)} named (by pid) + {len(delta)} 'Rhodanus delta' segments -> {OUT_RIVERS}")
+
+    network.sort(
+        key=lambda f: (
+            f["properties"]["pid"] or "zzz",
+            f["properties"]["origin"] or "",
+            f["properties"]["notes"] or "",
+            f["geometry"]["coordinates"][0][0],
+        )
+    )
+    with open(OUT_NETWORK, "w", encoding="utf-8") as f:
+        json.dump(
+            {"type": "FeatureCollection", "bbox": list(BBOX), "features": network},
+            f,
+            ensure_ascii=False,
+            indent=1,
+        )
+    n_net_pid = sum(1 for f in network if f["properties"]["pid"])
+    print(
+        f"river network: {len(network)} additional corridor features "
+        f"({n_net_pid} pid-keyed) -> {OUT_NETWORK}"
+    )
 
     # --- Inland water (lakes etc.) ---
     with open(RAW_WATER, encoding="utf-8") as f:

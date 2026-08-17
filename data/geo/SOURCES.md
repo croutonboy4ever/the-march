@@ -144,6 +144,15 @@ Gaps section at the bottom, not papered over.
     by Pleiades ID, never by name string; plus 5 unnamed segments the source
     itself annotates `notes="Rhodanus delta"` (Barrington Map 15 delta
     distributaries, no pid of their own).
+  - `processed/awmc-rivers-network-corridor.geojson` (added 2026-08-17) —
+    the 35 remaining river features of the same shapefile whose bounding box
+    overlaps the corridor bbox (26 of them pid-keyed, e.g. Sulga/Sorgue
+    148238; the set also includes the Liger/Loire headwaters feature, whose
+    linework enters the corridor's northwest corner). Same bbox-overlap rule
+    as the other clipped layers; no name-string selection; geometries
+    unmodified. Kept separate from the three-river file so the POC render
+    stays exactly reproducible. Rendered as the thin "other corridor rivers"
+    layer in the art-direction renders.
   - `processed/awmc-inland-water-corridor.geojson` — 615 of 6,393 polygons
     whose bounding box overlaps the corridor.
 - **Authority note**: AWMC linework is the authority for ancient-period river

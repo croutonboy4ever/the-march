@@ -323,6 +323,7 @@ def load_data():
         "dem": d,
         "lakes": load_geojson("awmc-inland-water-corridor.geojson"),
         "rivers": load_geojson("awmc-rivers-corridor.geojson"),
+        "river_network": load_geojson("awmc-rivers-network-corridor.geojson"),
         "shore": load_geojson("awmc-shoreline-corridor.geojson"),
         "roads": load_geojson("awmc-roads-corridor.geojson"),
         "places": load_geojson("pleiades-places-corridor.geojson"),
@@ -411,6 +412,24 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                     )
                 )
             n_lakes += 1
+
+        # Corridor river network (AWMC, added 2026-08-17): every other river
+        # feature overlapping the corridor, drawn thinner beneath the three
+        # named rivers and the delta arms.
+        n_network = 0
+        for ft in data["river_network"]["features"]:
+            for part in line_parts(ft["geometry"]):
+                xs, ys = zip(*[(p[0], p[1]) for p in part])
+                ax.plot(
+                    xs,
+                    ys,
+                    color=style["river"],
+                    lw=0.7,
+                    alpha=0.65,
+                    zorder=2.4,
+                    solid_capstyle="round",
+                )
+            n_network += 1
 
         n_river_feats = 0
         for ft in data["rivers"]["features"]:
@@ -602,6 +621,8 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                    label="Roman road (AWMC)"),
             Line2D([], [], color=style["river"], lw=1.8,
                    label="river: Rhodanus, Druentia, Isara + delta arms (AWMC)"),
+            Line2D([], [], color=style["river"], lw=0.8, alpha=0.75,
+                   label="other corridor rivers (AWMC network)"),
         ]
         if shore_in_view:
             handles.insert(6, Line2D([], [], color=style["shore"], lw=1.4,
@@ -645,7 +666,7 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         f"places: {len(setts)} settlements, {len(others)} other, "
         f"{len(uncertain)} uncertain, {len(candidates)} C-candidates, "
         f"{len(route_points)} R-candidates; "
-        f"rivers {n_river_feats}, lakes {n_lakes}; "
+        f"rivers {n_river_feats}+{n_network} network, lakes {n_lakes}; "
         f"legend: sea={sea_in_view} shore={shore_in_view} lakes={lakes_in_view}"
     )
 
