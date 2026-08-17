@@ -78,20 +78,6 @@ S_ROUTE = 70
 FIGSIZE = (16, 12)
 DPI = 150
 
-# Label treatment defaults. Any style dict may override these keys
-# (label_fontsize, key_fontsize, label_halo_alpha, label_halo_lw,
-# key_halo_alpha, key_halo_lw); the defaults reproduce the original
-# committed renders byte-for-byte.
-LABEL_DEFAULTS = {
-    "label_fontsize": 8.5,
-    "key_fontsize": 8,
-    "label_halo_alpha": "aa",
-    "label_halo_lw": 2.2,
-    "key_halo_alpha": "cc",
-    "key_halo_lw": 2.0,
-    "river_halo_lw": 2.0,
-}
-
 # ---------------------------------------------------------------------------
 # The three style directions. Styling only: colors, fonts, relief treatment.
 # ---------------------------------------------------------------------------
@@ -359,8 +345,6 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         for ft in data["lakes"]["features"]
     )
 
-    lp = {k: style.get(k, v) for k, v in LABEL_DEFAULTS.items()}
-
     terrain_cmap = LinearSegmentedColormap.from_list(
         style_key, style["terrain_stops"]
     )
@@ -484,13 +468,12 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                 (lon, lat),
                 xytext=(lon + dx, lat + dy),
                 ha="left" if dx >= 0 else "right",
-                fontsize=lp["key_fontsize"],
+                fontsize=8,
                 fontweight="bold",
                 color=style["ring_candidate"],
                 zorder=8,
                 path_effects=[patheffects.withStroke(
-                    linewidth=lp["key_halo_lw"],
-                    foreground=style["halo"] + lp["key_halo_alpha"])],
+                    linewidth=2.0, foreground=style["halo"] + "cc")],
             )
 
         route_points = []
@@ -515,13 +498,12 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                     (lon, lat),
                     xytext=(lon + dx, lat + dy),
                     ha="left" if dx >= 0 else "right",
-                    fontsize=lp["key_fontsize"],
+                    fontsize=8,
                     fontweight="bold",
                     color=style["route"],
                     zorder=8,
                     path_effects=[patheffects.withStroke(
-                        linewidth=lp["key_halo_lw"],
-                        foreground=style["halo"] + lp["key_halo_alpha"])],
+                        linewidth=2.0, foreground=style["halo"] + "cc")],
                 )
 
         for pid, (label, side, dy) in LABELS.items():
@@ -537,19 +519,18 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                 xytext=(lon + dx, lat + dy),
                 ha="left" if side == "right" else "right",
                 va="center",
-                fontsize=lp["label_fontsize"],
+                fontsize=8.5,
                 color=style["text"],
                 zorder=8,
                 path_effects=[patheffects.withStroke(
-                    linewidth=lp["label_halo_lw"],
-                    foreground=style["halo"] + lp["label_halo_alpha"])],
+                    linewidth=2.2, foreground=style["halo"] + "aa")],
             )
 
         for text, lon, lat, rot in RIVER_LABELS:
             ax.annotate(
                 text,
                 (lon, lat),
-                fontsize=lp["label_fontsize"],
+                fontsize=8.5,
                 fontstyle="italic",
                 color=style["river"],
                 rotation=rot,
@@ -558,8 +539,7 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                 va="center",
                 zorder=8,
                 path_effects=[patheffects.withStroke(
-                    linewidth=lp["river_halo_lw"],
-                    foreground=style["halo"] + lp["label_halo_alpha"])],
+                    linewidth=2.0, foreground=style["halo"] + "aa")],
             )
 
         ax.set_xlim(bbox[0], bbox[2])
