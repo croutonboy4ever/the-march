@@ -12,8 +12,15 @@ Output : site/poc/art-direction/<direction>/corridor-full.png
          site/poc/art-direction/contact-sheet.png
 
 Directions (styling only; the data pipeline and every marker rule are shared):
-  a-paper-map          the POC register refined: parchment ground, warm
-                       hypsometric tints, serif labels
+  a-ancient-map        ancient-artifact register (Peutinger-inspired):
+                       parchment ground with a subtle deterministic mottle,
+                       ink-wash sepia relief darkening with height, green
+                       water, red roads, antique serif lettering. The
+                       material language is ancient; the geometry is the
+                       same real topography as B and C (conventions
+                       section 6: the style never moves a place). Replaced
+                       a-paper-map 2026-08-17; the old direction is
+                       archived under archive/2026-08-17/.
   b-dark-atmospheric   night-march register: dark ground, terrain-forward
                        relief under restrained low light, sans labels
   c-modern-cartographic  clean editorial mapping: near-white ground, neutral
@@ -75,37 +82,41 @@ DPI = 150
 # The three style directions. Styling only: colors, fonts, relief treatment.
 # ---------------------------------------------------------------------------
 STYLES = {
-    "a-paper-map": {
-        "label": "Direction A · paper-map register",
+    "a-ancient-map": {
+        "label": "Direction A · ancient-map register",
         "font_family": "serif",
-        "font_names": ["Iowan Old Style", "Palatino", "Georgia", "DejaVu Serif"],
-        "face": "#f4efe4",
+        "font_names": ["Hoefler Text", "Iowan Old Style", "Palatino",
+                       "DejaVu Serif"],
+        "face": "#e8d9b5",
+        # Ink-wash relief: density of ink rises with elevation, the way
+        # engraved and hand-drawn maps darken their high ground.
         "terrain_stops": [
-            (0.00, "#667953"),
-            (0.18, "#8b935f"),
-            (0.38, "#c0aa74"),
-            (0.58, "#a98a63"),
-            (0.78, "#95806f"),
-            (0.92, "#e2dbcd"),
-            (1.00, "#f8f5ee"),
+            (0.00, "#ddcda4"),
+            (0.20, "#d3bf92"),
+            (0.42, "#c2a878"),
+            (0.62, "#a98a5c"),
+            (0.80, "#8a6b42"),
+            (0.93, "#6f5230"),
+            (1.00, "#5a4126"),
         ],
-        "shade": {"azdeg": 315, "altdeg": 45, "vert_exag": 1.4},
-        "sea": "#c2d2d4",
-        "lake": "#9dbfd2",
-        "river": "#37648f",
-        "shore": "#4a6b7a",
-        "road": "#7a2e2e",
+        "shade": {"azdeg": 315, "altdeg": 40, "vert_exag": 1.5},
+        "mottle": 0.035,  # parchment texture amplitude (deterministic)
+        "sea": "#a9c2ad",
+        "lake": "#8fb39a",
+        "river": "#3f7263",
+        "shore": "#4f6b52",
+        "road": "#963226",
         "road_alpha": 0.85,
-        "dot": "#241d13",
-        "dot_small": "#5a5145",
-        "ring_uncertain": "#3a342c",
-        "ring_candidate": "#a02c2c",
-        "route": "#6a3d9a",
-        "halo": "#f5f2e8",
-        "text": "#241d13",
-        "tick": "#5a5145",
-        "legend_face": "#f8f5ec",
-        "legend_edge": "#6b6257",
+        "dot": "#33261a",
+        "dot_small": "#6b5a42",
+        "ring_uncertain": "#4a3d2a",
+        "ring_candidate": "#c73b1d",
+        "route": "#5e3a8c",
+        "halo": "#ecdfbd",
+        "text": "#2e2113",
+        "tick": "#6b5637",
+        "legend_face": "#eee0c2",
+        "legend_edge": "#7a6237",
     },
     "b-dark-atmospheric": {
         "label": "Direction B · dark atmospheric",
@@ -265,6 +276,25 @@ def polygon_rings(geom):
     return []
 
 
+def parchment_mottle(shape, amplitude, seed=218):
+    """Subtle large-scale parchment texture, presentational only.
+
+    Deterministic (fixed seed, default 218 for the year of the crossing) so
+    repeated runs are byte-stable. Low-resolution noise upsampled smoothly;
+    returned as a multiplicative field around 1.0.
+    """
+    from PIL import Image
+
+    rng = np.random.default_rng(seed)
+    coarse = rng.standard_normal((45, 72))
+    img = Image.fromarray(np.float32(coarse), mode="F")
+    field = np.asarray(
+        img.resize((shape[1], shape[0]), Image.BICUBIC), dtype=np.float64
+    )
+    field /= max(abs(field.min()), abs(field.max()))
+    return 1.0 + amplitude * field
+
+
 def any_point_in_bbox(parts, bbox):
     for part in parts:
         for p in part:
@@ -330,6 +360,9 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         vert_exag=style["shade"]["vert_exag"],
     )
     shaded[sea] = matplotlib.colors.to_rgba(style["sea"])
+    if style.get("mottle"):
+        field = parchment_mottle(shaded.shape[:2], style["mottle"])
+        shaded[:, :, :3] = np.clip(shaded[:, :, :3] * field[:, :, None], 0, 1)
 
     rc = {
         "font.family": style["font_family"],
