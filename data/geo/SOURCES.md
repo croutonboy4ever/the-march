@@ -240,15 +240,19 @@ Gaps section at the bottom, not papered over.
   classes (grass/crop/wetland) where the DEM reads <= 0 m — the Camargue
   really is at sea level, and the AWMC ancient shoreline, not the DEM sea
   mask, remains the authority at the coast.
-- **Class-handling rule** (render-time, per the 2026-08-17 session brief):
-  natural classes only as terrain-texture basis (tree cover, shrubland,
-  grassland, bare/sparse, snow/ice, permanent water); built-up (50) is
-  masked, never rendered as a texture class. Two classes are NOT covered by
-  that rule and are awaiting Tony's decision (rendered as neutral
-  "pending" tones in the demonstration pair, decision flagged in the hub):
-  cropland (40, 9.5% of the corridor) and herbaceous wetland (90, the
-  Camargue delta). Moss/lichen (100, high-alpine tundra) is grouped with
-  bare/sparse as natural ground until told otherwise.
+- **Class-handling rule** (render-time; decided by Tony 2026-08-17, Decision
+  Log row Locked): natural classes as terrain-texture basis (tree cover,
+  shrubland, grassland, bare/sparse, snow/ice, permanent water); built-up
+  (50) is masked, never rendered as a texture class. Cropland (40, 9.5% of
+  the corridor) renders in the open-land tone, same family as grassland,
+  with the legend stating the treatment outright ("cropland: modern,
+  rendered as open land"); the honesty burden sits on the legend and the
+  modern-basis caption, not on a distinct color. Herbaceous wetland (90,
+  the Camargue delta) renders in its own marsh tone, distinct from open
+  water; note that most delta wetland cells sit at or below 0 m and remain
+  under the sea mask until shoreline-accurate rendering lands (gap 2).
+  Moss/lichen (100, high-alpine tundra) is grouped with bare/sparse as
+  natural ground (ratified same day).
 
 ## Gaps
 

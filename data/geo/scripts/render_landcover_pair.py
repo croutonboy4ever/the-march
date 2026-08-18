@@ -17,12 +17,17 @@ dataset. The land-cover panel is captioned as modern-basis texture in its
 label, its attribution line, and its legend; ancient vegetation is a
 separate inference and out of scope here.
 
-Class handling (render-time; the data file keeps all classes):
+Class handling (render-time; the data file keeps all classes). Decided by
+Tony 2026-08-17 (Decision Log, Locked):
   natural classes render as texture basis: tree, shrub, grass, bare/sparse
-  (moss/lichen grouped with bare), snow/ice, permanent water.
+  (moss/lichen grouped with bare, ratified), snow/ice, permanent water.
   built-up (50) is MASKED: drawn as the neutral ground tone, no texture claim.
-  cropland (40) and herbaceous wetland (90) are PENDING Tony's decision:
-  drawn as distinct neutral tones and labeled pending, deciding nothing.
+  cropland (40) renders in the open-land tone (same family as grassland);
+  the honesty lives in the legend label "cropland (modern, rendered as
+  open land)" and the modern-basis caption.
+  herbaceous wetland (90) renders in its own marsh tone, distinct from
+  open water; most delta wetland cells sit at or below 0 m and stay under
+  the sea mask until shoreline-accurate rendering lands (SOURCES gap 2).
 
 Output : site/poc/landcover-pair/landcover-driven.png
          site/poc/landcover-pair/elevation-keyed.png
@@ -53,13 +58,13 @@ CLASS_COLORS = {
     10: "#4a7247",            # tree cover
     20: "#8a9a58",            # shrubland
     30: "#a8b070",            # grassland
-    40: "#cfc7ad",            # cropland — PENDING decision
+    40: "#a8b070",            # cropland: open-land tone (decided 2026-08-17)
     50: NEUTRAL,              # built-up — masked
     60: "#b0a184",            # bare / sparse vegetation
     70: "#f0f3f5",            # snow and ice
     80: "#5f97b8",            # permanent water
-    90: "#a9bfb2",            # herbaceous wetland — PENDING decision
-    100: "#b0a184",           # moss/lichen, grouped with bare (SOURCES s.6)
+    90: "#7fa98e",            # herbaceous wetland: marsh tone (decided 2026-08-17)
+    100: "#b0a184",           # moss/lichen, grouped with bare (ratified)
 }
 
 LEGEND_PATCHES = [
@@ -69,8 +74,8 @@ LEGEND_PATCHES = [
     ("bare / sparse (incl. moss & lichen)", CLASS_COLORS[60]),
     ("snow / ice", CLASS_COLORS[70]),
     ("permanent water (land cover)", CLASS_COLORS[80]),
-    ("cropland — class handling pending", CLASS_COLORS[40]),
-    ("herbaceous wetland — handling pending", CLASS_COLORS[90]),
+    ("cropland (modern, rendered as open land)", CLASS_COLORS[40]),
+    ("herbaceous wetland (marsh)", CLASS_COLORS[90]),
     ("built-up (masked) / no data", NEUTRAL),
 ]
 
