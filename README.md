@@ -52,7 +52,8 @@ then open http://localhost:8000/.
 
 To reproduce the data pipeline (raw downloads onward), see the script headers in
 `data/geo/scripts/` and the per-source entries in `data/geo/SOURCES.md`. Python
-dependencies for processing: `python3 -m venv .venv && .venv/bin/pip install numpy matplotlib`.
+dependencies for processing: `python3 -m venv .venv && .venv/bin/pip install numpy matplotlib tifffile`
+(`tifffile` reads the ESA WorldCover GeoTIFF tiles in `extract_landcover.py`).
 
 ## Provenance rule for data
 

@@ -195,6 +195,61 @@ Gaps section at the bottom, not papered over.
   coincide in space at that point. Both markers render at their own recorded
   coordinates; nothing was moved to make this so or to avoid the overlap.
 
+## 6. Land cover: ESA WorldCover v200 (2021)
+
+- **What**: 10 m global land-cover map, epoch 2021, version v200. 4 tiles of
+  3x3 degrees (uint8 class codes, 1/12000-degree pixels) covering the corridor
+  bbox 4.0–8.0 E, 43.5–46.0 N. **This is a modern (2021) dataset**: everywhere
+  it renders it is captioned as modern-basis texture; ancient vegetation is a
+  separate inference and out of scope for this layer. WorldCover was the
+  primary target and was reachable; the CORINE 100 m fallback was not needed.
+- **Origin URL pattern**:
+  https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_{tile}_Map.tif
+  (product: https://esa-worldcover.org/ ; registry:
+  https://registry.opendata.aws/esa-worldcover-vito/).
+- **Date pulled**: 2026-08-17.
+- **License**: Creative Commons Attribution 4.0 (CC-BY 4.0). Attribution:
+  "© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data
+  (2021) processed by ESA WorldCover consortium".
+- **Raw files** (on disk, gitignored; too large for git), `raw/landcover/`:
+  - `ESA_WorldCover_10m_2021_v200_N42E003_Map.tif`, 69,615,796 bytes,
+    sha256 `5e53545a20a2093b6f1939a79d530302601f536fbfdad3c29359784ce22c356d`
+  - `ESA_WorldCover_10m_2021_v200_N42E006_Map.tif`, 51,160,212 bytes,
+    sha256 `a96ec5d86f42920bdd29ac8b6214388c2df1e3229b9efb8c283bcd44480c8c20`
+  - `ESA_WorldCover_10m_2021_v200_N45E003_Map.tif`, 102,017,373 bytes,
+    sha256 `fa02d47027d5d437200689a55c40467465e2e4cdc8d7027cc0cee3e479256aa2`
+  - `ESA_WorldCover_10m_2021_v200_N45E006_Map.tif`, 106,497,465 bytes,
+    sha256 `9d4d371430b1aaec777228df59616cb503a9b62fe192c1de855036c43b07e75d`
+- **Processed file** (committed): `processed/landcover-corridor.npz` —
+  majority WorldCover class per DEM cell on exactly the DEM render grid
+  (2250 x 3600, 1/900-degree cells, west 4.0, north 46.0; see section 3),
+  plus the majority fraction per cell. Produced by
+  `scripts/extract_landcover.py`: each 10 m pixel votes into the DEM cell
+  containing its center (~178 pixels per cell; 40 pixels = exactly 3 cells
+  per axis, so no cell straddles a tile edge), nodata excluded. All 11
+  WorldCover classes are preserved in the file; which classes render, and
+  how, is a render-time decision. Corridor pixel shares: tree 49.7%,
+  grassland 25.2%, cropland 9.5%, bare/sparse 4.1%, built-up 3.8%,
+  permanent water 3.4%, shrubland 1.9%, snow/ice 1.2%, moss/lichen 1.0%,
+  herbaceous wetland 0.2%, mangroves 0. Median majority fraction 95%
+  (p10 55%): most cells are dominated by one class.
+- **Spot-checks** (2026-08-17): Avignon center reads built-up (78%), Mont
+  Ventoux summit bare (55%), Col de la Traversette bare (92%); DEM sea
+  cells (elev <= 0) read water or nodata almost everywhere. Exception,
+  consistent with gap 2: ~30k cells around the Rhone delta carry land
+  classes (grass/crop/wetland) where the DEM reads <= 0 m — the Camargue
+  really is at sea level, and the AWMC ancient shoreline, not the DEM sea
+  mask, remains the authority at the coast.
+- **Class-handling rule** (render-time, per the 2026-08-17 session brief):
+  natural classes only as terrain-texture basis (tree cover, shrubland,
+  grassland, bare/sparse, snow/ice, permanent water); built-up (50) is
+  masked, never rendered as a texture class. Two classes are NOT covered by
+  that rule and are awaiting Tony's decision (rendered as neutral
+  "pending" tones in the demonstration pair, decision flagged in the hub):
+  cropland (40, 9.5% of the corridor) and herbaceous wetland (90, the
+  Camargue delta). Moss/lichen (100, high-alpine tundra) is grouped with
+  bare/sparse as natural ground until told otherwise.
+
 ## Gaps
 
 Known gaps as of 2026-08-09. All sources targeted by the spike were reachable;
