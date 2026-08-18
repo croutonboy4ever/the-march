@@ -1,7 +1,14 @@
 # Memo: Roman roads on march-period maps, display or filter
 
-2026-08-17. For Tony. Decision filed Open in the March Decision Log; this memo
-is the options brief behind it. Nothing here is decided.
+2026-08-17. For Tony. Decision filed in the March Decision Log; this memo is
+the options brief behind it.
+
+**Decided 2026-08-17, same day, by Tony: the recommendation as written, both
+options staged.** Stage 1 (relabel exploratory renders) applied in this repo
+the same day; stage 2 (period-filter march-period scenes in the shipped
+chapter, roads available only as an explicitly labeled later-Roman layer) is
+the recorded rule for chapter builds. The Decision Log row is Locked. The
+options text below is retained unchanged as the record of the analysis.
 
 ## The question
 
@@ -75,4 +82,4 @@ aside), never as silent background. This follows conventions sections 3 and 6:
 the map asserts only what the sources put there in 218 BC, and the Roman
 network enters as the labeled later layer it is.
 
-The call is yours; the Decision Log row stays Open until you make it.
+The call was Tony's; made 2026-08-17 as recorded at the top of this memo.

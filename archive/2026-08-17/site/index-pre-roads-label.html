@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The March — corridor terrain spike</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --ink: #1f1a14;
+    --paper: #f5f2ec;
+    --muted: #6b6257;
+    --route: #6a3d9a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e8e2d8; --paper: #17140f; --muted: #a49a8c; --route: #b48fe0; }
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.6 Georgia, "Times New Roman", serif;
+  }
+  main { max-width: 72rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 0.25rem; }
+  .kicker { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
+  figure { margin: 0; }
+  img { width: 100%; height: auto; display: block; border: 1px solid var(--muted); }
+  figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.6rem; }
+  p.note { max-width: 46rem; }
+  section.route-candidates { max-width: 46rem; margin-top: 2.5rem; }
+  section.route-candidates h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+  section.route-candidates dt {
+    font-weight: bold; color: var(--route); margin-top: 1rem;
+  }
+  section.route-candidates dd { margin: 0.2rem 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>The March</h1>
+  <p class="kicker">Data spike: real topography for the Rhone-to-Alps corridor (4.0–8.0 E, 43.5–46.0 N)</p>
+  <figure>
+    <img src="poc/corridor-map.png"
+         alt="Shaded-relief map of southeastern Gaul from the Rhone valley to the western Alps, with ancient places, Roman roads, rivers, inland water, the ancient shoreline, contested Alpine-pass location candidates C1-C6, and contested Hannibal route candidates R1-R7 overlaid, plus a legend beneath the map">
+    <figcaption>
+      Every feature traces to source data; nothing is drawn freehand.
+      The legend beneath the map covers every marker and line type drawn;
+      every distinction it claims is visible in the render.
+      Elevation: NASA SRTM et al. via Terrain Tiles on AWS (~120 m render
+      grid). The render grid is visualization-only (conventions §4): no
+      elevation figure on this page is read off it, and the color-scale
+      numbers describe the color mapping, not any place's elevation.
+      Ancient places: Pleiades gazetteer (CC-BY), 705 places in the corridor;
+      dots are Pleiades representative points; solid settlement dots are
+      drawn at four times the marker area of other places; hollow grey rings
+      mark the 25 places whose location Pleiades itself rates below
+      “certain.”
+      Rivers and inland water: Ancient World Mapping Center geodata (ODbL);
+      the Rhone (Rhodanus, Pleiades 148168), Durance (Druentia, 148069), and
+      Isère (Isara, 167793) are selected by Pleiades ID, with five delta
+      segments the source annotates “Rhodanus delta.” AWMC linework is the
+      authority for ancient-period river courses; modern hydrology, like
+      modern SRTM terrain, is real but modern; the Rhone's course and delta
+      have shifted since 218 BC.
+      Roman roads and ancient shoreline: AWMC (ODbL), derived from the
+      Barrington Atlas.
+      Contested passes: the red hollow rings C1–C6 are the six candidate
+      locations Pleiades titles “Pass of the Alpes Graiae” (west of Segusio),
+      keyed by Pleiades ID:
+      C1&nbsp;264120821, C2&nbsp;963101021, C3&nbsp;963101022,
+      C4&nbsp;963101023, C5&nbsp;963101024, C6&nbsp;963101025.
+      Pleiades and DARMC name no modern pass and no scholarly backer for any
+      of them, with one exception: C3 carries a Pleiades link to Col du Petit
+      Mont-Cenis whose GeoHack longitude is visibly truncated (6.0°), which
+      skews that representative point west into the Arc valley; the ring is
+      drawn on the representative point exactly as Pleiades gives it, nothing
+      moved. Which scholars back which Alpine crossing enters later from the
+      fact base, with attributions, per conventions §2 and §6; no backer is
+      named here because none is named in the map's source data.
+      These C-rings are a location-candidate debate: where one named ancient
+      place sits. The violet hollow diamonds R1–R7 are a separate
+      route debate: which pass Hannibal actually crossed. Four resolve to
+      Pleiades entries by ID (R3&nbsp;167826, R4&nbsp;167639, R5&nbsp;167932);
+      three have no Pleiades or AWMC record and are placed from Wikidata (R1,
+      R2, R6; see <code>data/geo/SOURCES.md</code> section&nbsp;5), and R7
+      reuses the IGN reference point already recorded there for Col du Mont
+      Cenis. Key: R1&nbsp;Col de la Traversette, R2&nbsp;Col de Clapier,
+      R3&nbsp;Col du Montgen&egrave;vre, R4&nbsp;Little St Bernard (Alpis
+      Graia), R5&nbsp;Great St Bernard (Alpis Poenina), R6&nbsp;Col de la
+      Larche, R7&nbsp;Mont Cenis / Petit Mont-Cenis. Backers and arguments for
+      each are in the keyed note below the legend. The R2 diamond and the C1
+      ring sit ~100&nbsp;m apart on the ground (SOURCES.md section&nbsp;5): the
+      location-candidate debate and the route debate coincide there, and
+      neither marker was moved to make that so or to avoid it.
+      Provenance detail: <code>data/geo/SOURCES.md</code> in the repository.
+    </figcaption>
+  </figure>
+  <section class="route-candidates">
+    <h2>Route candidates: which pass did Hannibal cross?</h2>
+    <p class="note">
+      Which of these seven passes Hannibal crossed in 218 BC is a standing
+      scholarly debate (conventions §2), attributed here from the project
+      fact base. "Backers" are the modern scholars whose readings are
+      recorded in the fact base; each argument is marked inferred, reasoned
+      from the attested ancient anchors named alongside it. Source file:
+      <code>data/content/02/route-candidates.md</code>.
+    </p>
+    <dl>
+      <dt>R1 &mdash; Col de la Traversette</dt>
+      <dd>Backers: Mahaney (soil-core studies); MacDonald; Ball. Argument
+        (inferred, per Mahaney et al.): peat-bog cores at ~3000&nbsp;m carry
+        biomarkers, horse tapeworm eggs, and clostridia DNA dated ~218&nbsp;BC,
+        indicating a mass animal crossing. Ancient anchors: Polybius on the
+        treeless snowbound summit, the leukopetron, and the 1.5-stadia
+        landslide.</dd>
+      <dt>R2 &mdash; Col de Clapier</dt>
+      <dd>Backers: Connolly; Lazenby; Lancel; Kuhle and Kuhle (contra
+        Mahaney); Hoyte 1960 expedition. Argument (inferred): direct northern
+        route matching Polybius's march along the river past the Island, 800
+        stadia; feasibility shown by Hoyte's elephant crossing, 1960. Ancient
+        anchors: Polybius 3.49&ndash;56.</dd>
+      <dt>R3 &mdash; Col du Montgen&egrave;vre</dt>
+      <dd>Backers: Lancel (followed by Miles). Argument (inferred): a known
+        easy trade pass; the one route matching Livy's itinerary up the
+        Durance. Ancient anchors: Livy 21.31&ndash;32 (Tricastini, Tricorii,
+        Vocontii, the Druentia crossing).</dd>
+      <dt>R4 &mdash; Little St Bernard</dt>
+      <dd>Backers: Mommsen; Capes; ancient backer Coelius Antipater (crossing
+        "by the heights of Cremo"). Argument (inferred): literal reading of
+        Polybius's along-the-river march as far as Vienne, over Mont du Chat,
+        descending via the Salassi to the Insubres. Ancient anchors: Polybius
+        (arrival among the Insubres); Coelius Antipater fragment.</dd>
+      <dt>R5 &mdash; Great St Bernard (Alpis Poenina)</dt>
+      <dd>Ancient etymological tradition only (named for the Poeni). Refuted
+        by Livy 21.38: the Poeninus deity, hostile tribes, and a wrong
+        arrival among the Libui. No modern backer in the fact base.</dd>
+      <dt>R6 &mdash; Col de la Larche</dt>
+      <dd>Backer: Lancel, as a southern alternative bypassing Scipio's
+        coastal scouts. Ancient anchors: the same Livy Durance corridor.</dd>
+      <dt>R7 &mdash; Mont Cenis / Petit Mont-Cenis</dt>
+      <dd>Named in the fact base as a classic candidate; no backer or
+        distinct argument recorded. Displayed as such.</dd>
+    </dl>
+    <p class="note">
+      Attributions per the project fact base (NotebookLM corpus query, Aug 11,
+      2026); ancient locators to be spot-checked against the clean
+      Polybius/Livy texts at chapter preflight.
+    </p>
+  </section>
+  <p class="note">
+    This page is a proof of concept, not a chapter. It exists to show that the
+    corridor's real terrain, ancient places, roads, and shoreline can be
+    rendered from public source data end to end. The interactive experience,
+    provenance markers, and chapter content come later and are governed by the
+    conventions document in <code>docs/</code>.
+  </p>
+</main>
+</body>
+</html>

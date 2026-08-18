@@ -636,7 +636,7 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
                    markersize=np.sqrt(S_ROUTE),
                    label="Hannibal route candidate R1–R7 (contested; key on page)"),
             Line2D([], [], color=style["road"], lw=1.4,
-                   label="Roman road (AWMC)"),
+                   label="Roman road (AWMC; network postdates the march)"),
             Line2D([], [], color=style["river"], lw=1.8,
                    label="river: Rhodanus, Druentia, Isara + delta arms (AWMC)"),
             Line2D([], [], color=style["river"], lw=0.8, alpha=0.75,
