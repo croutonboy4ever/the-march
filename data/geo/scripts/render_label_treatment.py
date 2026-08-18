@@ -10,8 +10,11 @@ the treatment carries across every direction and state unchanged.
 
 Rendered on the two hardest backgrounds from the rich-world strip (clear
 summer day, autumn of the crossing) plus the committed dark baseline, using
-the shared renderer's label parameters; the shared defaults are untouched
-and reproduce all committed renders byte-for-byte (verified by re-run).
+the shared renderer's label parameters. Fold-in approved by Tony 2026-08-17:
+the shared LABEL_DEFAULTS in render_art_direction.py now carry the fix, so
+LABEL_FIX below matches the defaults, and the before/after sheet renders its
+"before" panel explicitly from LABEL_BEFORE (the original values) so the
+comparison stays a true record.
 
 This is the raster-side fix. In the shipped product, labels belong to the
 screen-space reading layer (vector or HTML over the terrain render), which
@@ -48,6 +51,19 @@ LABEL_FIX = {
     "river_halo_lw": 3.0,
 }
 
+# The pre-fold-in treatment (the original committed defaults), kept so the
+# before/after sheet remains reproducible now that the shared defaults carry
+# the fix.
+LABEL_BEFORE = {
+    "label_fontsize": 8.5,
+    "key_fontsize": 8,
+    "label_halo_alpha": "aa",
+    "label_halo_lw": 2.2,
+    "key_halo_alpha": "cc",
+    "key_halo_lw": 2.0,
+    "river_halo_lw": 2.0,
+}
+
 DEMOS = {
     "clear-summer-day": dict(rich.STATES["clear-summer-day"], **LABEL_FIX),
     "autumn-crossing": dict(rich.STATES["autumn-crossing"], **LABEL_FIX),
@@ -58,10 +74,7 @@ DEMOS = {
 def before_after(out_path):
     from PIL import Image
 
-    before = os.path.join(
-        rad.OUT_DIR, "b-dark-atmospheric", "rich-world-states",
-        "clear-summer-day.png",
-    )
+    before = os.path.join(OUT_DIR, "clear-summer-day-labels-before.png")
     after = os.path.join(OUT_DIR, "clear-summer-day-labels.png")
     titles = [
         "Before: 8.5pt labels, halo 67% opacity, 2.2px",
@@ -92,6 +105,16 @@ def before_after(out_path):
 def main():
     data = rad.load_data()
     view_key, view_label, bbox = rad.VIEWS[1]  # alps-detail
+    # Explicit "before" panel with the pre-fold-in treatment.
+    before_style = dict(rich.STATES["clear-summer-day"], **LABEL_BEFORE)
+    before_style["label"] = before_style["label"].replace(
+        "Direction B · ", "Direction B · pre-fold-in labels · "
+    )
+    rad.STYLES["b-labels-before"] = before_style
+    rad.render(
+        "b-labels-before", view_key, view_label, bbox, data,
+        os.path.join(OUT_DIR, "clear-summer-day-labels-before.png"),
+    )
     for demo_key, style in DEMOS.items():
         style = dict(style)
         style["label"] = style["label"].replace(

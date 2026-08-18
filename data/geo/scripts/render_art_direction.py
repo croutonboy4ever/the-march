@@ -80,16 +80,18 @@ DPI = 150
 
 # Label treatment defaults. Any style dict may override these keys
 # (label_fontsize, key_fontsize, label_halo_alpha, label_halo_lw,
-# key_halo_alpha, key_halo_lw); the defaults reproduce the original
-# committed renders byte-for-byte.
+# key_halo_alpha, key_halo_lw). Since 2026-08-17 the defaults carry the
+# approved legibility treatment (10pt labels, opaque halos; Tony's fold-in
+# approval); the original 8.5pt/67%-halo values are recorded as
+# LABEL_BEFORE in render_label_treatment.py and in the archived copies.
 LABEL_DEFAULTS = {
-    "label_fontsize": 8.5,
-    "key_fontsize": 8,
-    "label_halo_alpha": "aa",
-    "label_halo_lw": 2.2,
-    "key_halo_alpha": "cc",
-    "key_halo_lw": 2.0,
-    "river_halo_lw": 2.0,
+    "label_fontsize": 10,
+    "key_fontsize": 9.5,
+    "label_halo_alpha": "ff",
+    "label_halo_lw": 3.2,
+    "key_halo_alpha": "ff",
+    "key_halo_lw": 3.0,
+    "river_halo_lw": 3.0,
 }
 
 # ---------------------------------------------------------------------------
