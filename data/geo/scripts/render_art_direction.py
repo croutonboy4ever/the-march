@@ -362,20 +362,35 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
 
     lp = {k: style.get(k, v) for k, v in LABEL_DEFAULTS.items()}
 
-    terrain_cmap = LinearSegmentedColormap.from_list(
-        style_key, style["terrain_stops"]
-    )
     ls = LightSource(azdeg=style["shade"]["azdeg"], altdeg=style["shade"]["altdeg"])
-    shaded = ls.shade(
-        np.where(sea, 0.0, elev),
-        cmap=terrain_cmap,
-        blend_mode="soft",
-        vmin=0,
-        vmax=4400,
-        dx=cell * m_per_deg_lon,
-        dy=cell * m_per_deg_lat,
-        vert_exag=style["shade"]["vert_exag"],
-    )
+    if "base_rgb" in style:
+        # Base color comes from an external per-cell field (e.g. land cover);
+        # the DEM contributes hillshade only. No elevation-keyed ramp exists,
+        # so no terrain colorbar is drawn for such styles.
+        terrain_cmap = None
+        rgb = ls.shade_rgb(
+            style["base_rgb"],
+            np.where(sea, 0.0, elev),
+            blend_mode="soft",
+            vert_exag=style["shade"]["vert_exag"],
+            dx=cell * m_per_deg_lon,
+            dy=cell * m_per_deg_lat,
+        )
+        shaded = np.dstack([rgb, np.ones(rgb.shape[:2])])
+    else:
+        terrain_cmap = LinearSegmentedColormap.from_list(
+            style_key, style["terrain_stops"]
+        )
+        shaded = ls.shade(
+            np.where(sea, 0.0, elev),
+            cmap=terrain_cmap,
+            blend_mode="soft",
+            vmin=0,
+            vmax=4400,
+            dx=cell * m_per_deg_lon,
+            dy=cell * m_per_deg_lat,
+            vert_exag=style["shade"]["vert_exag"],
+        )
     shaded[sea] = matplotlib.colors.to_rgba(style["sea"])
     if style.get("mottle"):
         field = parchment_mottle(shaded.shape[:2], style["mottle"])
@@ -395,7 +410,10 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         fig, ax = plt.subplots(figsize=FIGSIZE, dpi=DPI)
         fig.patch.set_facecolor(style["face"])
         ax.set_facecolor(style["face"])
-        fig.subplots_adjust(left=0.055, right=0.99, top=0.915, bottom=0.16)
+        fig.subplots_adjust(
+            left=0.055, right=0.99, top=0.915,
+            bottom=style.get("bottom_margin", 0.16),
+        )
 
         ax.imshow(shaded, extent=(west, east, south, north), origin="upper", zorder=1)
 
@@ -588,7 +606,7 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         ax.set_ylabel("latitude (°N)")
         ax.set_title(
             f"The March: Rhone-to-Alps corridor ({view_label})\n"
-            + TITLE_ATTRIBUTION,
+            + style.get("attribution", TITLE_ATTRIBUTION),
             fontsize=11,
             color=style["text"],
         )
@@ -633,12 +651,14 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         if sea_in_view:
             handles.append(Patch(facecolor=style["sea"],
                                  label="sea (render grid elevation ≤ 0)"))
+        for lbl, color in style.get("extra_legend_patches", []):
+            handles.append(Patch(facecolor=color, label=lbl))
 
         leg = ax.legend(
             handles=handles,
             loc="upper left",
             bbox_to_anchor=(0.0, -0.055),
-            ncol=3,
+            ncol=style.get("legend_ncol", 3),
             fontsize=8,
             framealpha=1.0,
             facecolor=style["legend_face"],
@@ -650,11 +670,12 @@ def render(style_key, view_key, view_label, bbox, data, out_path):
         leg.get_title().set_color(style["text"])
         leg.set_zorder(10)
 
-        sm = plt.cm.ScalarMappable(cmap=terrain_cmap, norm=Normalize(0, 4400))
-        cbar = fig.colorbar(sm, ax=ax, shrink=0.5, pad=0.01, aspect=30)
-        cbar.set_label(CBAR_LABEL, fontsize=8, color=style["tick"])
-        cbar.ax.tick_params(labelsize=7, colors=style["tick"])
-        cbar.outline.set_edgecolor(style["tick"])
+        if terrain_cmap is not None:
+            sm = plt.cm.ScalarMappable(cmap=terrain_cmap, norm=Normalize(0, 4400))
+            cbar = fig.colorbar(sm, ax=ax, shrink=0.5, pad=0.01, aspect=30)
+            cbar.set_label(CBAR_LABEL, fontsize=8, color=style["tick"])
+            cbar.ax.tick_params(labelsize=7, colors=style["tick"])
+            cbar.outline.set_edgecolor(style["tick"])
 
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         fig.savefig(out_path, facecolor=style["face"], dpi=DPI)
