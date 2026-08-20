@@ -200,15 +200,13 @@ TYPE_SETTINGS = {
 }
 PRIMARY_SETTING = "inscriptional"
 
-# Modern-gloss disambiguation, local to these plates. Pleiades 167650 is
-# titled "Aquae Sextiae" but its own description reads "modern Aix-les-Bains",
-# and it sits at 5.92E 45.69N in Savoie. The shared renderer's gloss, "(Aix)",
-# reads as Aix-en-Provence, a different town. Corrected here from the source
-# record; the shared LABELS dict still carries the old gloss and is flagged
-# separately rather than edited from a brand session.
-LABEL_GLOSS = {
-    "167650": "Aquae Sextiae\n(Aix-les-Bains)",
-}
+# Per-plate modern-gloss overrides on top of the shared LABELS dict. Empty
+# since 2026-08-20: the one entry here, the Aix-les-Bains disambiguation for
+# Pleiades 167650, was folded into the shared dict in render_art_direction.py
+# and render_poc.py at Tony's direction, so these plates now read the shared
+# gloss. The hook stays because a plate may still need a caption-length label
+# the corridor renders do not want.
+LABEL_GLOSS = {}
 
 
 def fp(setting, role, size, weight=None, style=None):

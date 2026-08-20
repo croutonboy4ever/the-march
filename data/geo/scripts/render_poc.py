@@ -96,7 +96,12 @@ LABELS = {
     "167691": ("Brigantio\n(Briançon)", "left", -0.04),
     "167826": ("Matrona\n(Col de Montgenèvre)", "right", 0.04),
     "167639": ("Alpis Graia\n(Little St Bernard)", "left", 0.0),
-    "167650": ("Aquae Sextiae\n(Aix)", "right", 0.0),
+    # Aix-les-Bains in Savoie, not Aix-en-Provence. Pleiades 167650 sits at
+    # 5.9155E 45.6891N and its own description reads "Aquae Sextiae (modern
+    # Aix-les-Bains) was a vicus of the city of Vienna." The earlier gloss
+    # "(Aix)" read as Aix-en-Provence, which is Aquae Sextiae Salluviorum,
+    # a different town about 240 km south. Corrected 2026-08-20.
+    "167650": ("Aquae Sextiae\n(Aix-les-Bains)", "right", 0.0),
 }
 
 # The six Pleiades places titled "Pass of the Alpes Graiae" (candidate pass

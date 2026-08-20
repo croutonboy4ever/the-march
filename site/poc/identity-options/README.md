@@ -92,10 +92,19 @@ corridor DEM. That gap is named on the plate rather than filled in.
 3. **Typography.** Whether the display face is Copperplate, Hoefler Text, or Didot, and
    whether the display line is letterspaced caps at all.
 
+## Corrected since
+
+- **Aquae Sextiae gloss, fixed 2026-08-20 at Tony's direction.** `render_art_direction.py`
+  and `render_poc.py` glossed Pleiades 167650 as "Aquae Sextiae (Aix)". The record sits at
+  5.9155 E, 45.6891 N in Savoie and its own Pleiades description reads "modern
+  Aix-les-Bains"; the old gloss read as Aix-en-Provence, which is Aquae Sextiae
+  Salluviorum, about 240 km south. Both shared dicts now read "(Aix-les-Bains)" and every
+  corridor-full render was regenerated. The local `LABEL_GLOSS` override in
+  `render_identity_options.py` is now empty; the hook stays for per-plate label needs.
+  Only the route-debate plate ever carried this label, and it already showed the
+  corrected form; the title card crop stops short of it in latitude.
+
 ## Flagged, not fixed here
 
-- `render_art_direction.py` glosses Pleiades 167650 as "Aquae Sextiae (Aix)". The record
-  is Aix-les-Bains in Savoie, not Aix-en-Provence. These plates carry a local corrected
-  gloss (`LABEL_GLOSS`); the shared renderer still has the old one.
 - The top-level `README.md` still points at `docs/conventions-v0.2.md` as canonical.
   `conventions-v1.0.md` supersedes it.
