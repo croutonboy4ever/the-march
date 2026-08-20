@@ -13,7 +13,7 @@ processed data through the existing Direction A style dict in
 
   2  site/poc/identity-options/2-frontispiece-the-crossing/
      frontispiece-the-crossing.png
-     Chapter frontispiece for chapter one, The Crossing, over the A-register
+     Chapter frontispiece for chapter two, The Crossing, over the A-register
      Alps detail view: a plate in a ruled frame with chapter number, title,
      an attested standfirst with its anchor, and the open route gap named.
 
@@ -589,7 +589,7 @@ def title_card_variants(data, out_path):
 # Option 2: chapter frontispiece, The Crossing
 # ---------------------------------------------------------------------------
 FRONT_BBOX = rad.VIEWS[1][2]  # the committed Alps detail view
-CHAPTER_NUM = "Chapter One"
+CHAPTER_NUM = "Chapter Two"
 CHAPTER_TITLE = "The Crossing"
 # Attested, claims ledger TC-12: Polybius 3.53, Livy 21.35 confirmed verbatim.
 FRONT_STANDFIRST = ("On the ninth day they reached the head of the pass, "

@@ -18,7 +18,7 @@ copying it. Reproduce with:
 | `contact-sheet.png` | All three plates at a common height | mixed |
 | `1-title-card/title-card.png` | Title card: The March, over the A corridor render | corridor-full, trimmed to 4:3 |
 | `1-title-card/title-card-typography.png` | The same card in three type settings | as above |
-| `2-frontispiece-the-crossing/frontispiece-the-crossing.png` | Chapter frontispiece for chapter one | committed Alps detail bbox |
+| `2-frontispiece-the-crossing/frontispiece-the-crossing.png` | Chapter frontispiece for chapter two | committed Alps detail bbox |
 | `3-route-debate/route-debate.png` | R1 to R7 drawn as competing corridors, with the backer key | 5.3 to 8.0 E, 44.0 to 45.95 N |
 | `4-register-variants/register-variants.png` | Four ideas of what an ancient map is, side by side. See its own [NOTES](4-register-variants/NOTES.md) | committed Alps detail bbox |
 
