@@ -20,6 +20,7 @@ copying it. Reproduce with:
 | `1-title-card/title-card-typography.png` | The same card in three type settings | as above |
 | `2-frontispiece-the-crossing/frontispiece-the-crossing.png` | Chapter frontispiece for chapter one | committed Alps detail bbox |
 | `3-route-debate/route-debate.png` | R1 to R7 drawn as competing corridors, with the backer key | 5.3 to 8.0 E, 44.0 to 45.95 N |
+| `4-register-variants/register-variants.png` | Four ideas of what an ancient map is, side by side. See its own [NOTES](4-register-variants/NOTES.md) | committed Alps detail bbox |
 
 ## Rules this build held to
 
@@ -81,10 +82,19 @@ antiquity, R7 is tagged as having no backer recorded, and R5 is drawn on its eas
 descent only because its western approach, the Valais Rhone, lies outside the committed
 corridor DEM. That gap is named on the plate rather than filled in.
 
+## Register variations (added later the same day)
+
+Options 1 to 3 all sit in one reading of "ancient map": the Peutinger-inspired ink wash.
+`4-register-variants/` puts three more readings beside it on the same Alps-detail data,
+each with its own relief renderer generated from the committed DEM: copperplate hachure,
+Ptolemaic woodcut, and incised stone. Full write-up in
+[4-register-variants/NOTES.md](4-register-variants/NOTES.md), including which traditions
+were ruled out and why.
+
 ## Open with Tony
 
-1. **The brand direction itself.** Which of the three treatments, if any, is the shape
-   the identity should take. Decision Log row stays Open.
+1. **The brand direction itself.** Which treatment, and now also which register, if any,
+   is the shape the identity should take. Decision Log row stays Open.
 2. **The subtitle's provenance status.** "Hannibal and the war that nearly ended Rome"
    is a framing claim, not a sourced one. Under conventions section 1, untagged prose
    defaults to attested and needs an anchor. Cover and identity copy probably needs
