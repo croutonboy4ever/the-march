@@ -4,14 +4,10 @@ An interactive web experience on the Second Punic War. The core of the experienc
 Hannibal's march from Iberia across the Rhone and the Alps into Italy, told through
 real geography, sourced narrative, and explicit provenance for every claim.
 
-Accuracy conventions are canonical in [docs/conventions-v1.0.md](docs/conventions-v1.0.md):
+Accuracy conventions are canonical in [docs/conventions-v0.2.md](docs/conventions-v0.2.md):
 three provenance markers (attested / inferred / imagined), source disagreement shown as
 content, real coordinates and real topography only. Nothing on a map is freehand; every
 feature traces to source data.
-
-How chapters get built is canonical in [docs/build-plan-v1.0.md](docs/build-plan-v1.0.md):
-one chapter is the unit of work, eight phases P0 to P7, each with a gate that must pass
-before the next starts. Current position is tracked in the Notion hub, not in the repo.
 
 ## Repository structure
 
