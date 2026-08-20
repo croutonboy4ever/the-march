@@ -65,6 +65,16 @@ steepness if it is not labeled as styling.
 Nothing was built for this option and no library was installed or chosen.
 This is the bound so the comparison is fair.
 
+> **Measured since (2026-08-20):** `scene-3d/MEASUREMENTS.md` replaces the
+> asset-side estimates below with real numbers, for the scoped case where 3D
+> exists only at a short list of named scenes. One exported scene runs 2.2 to
+> 5.1 MB including its texture, the same order as the PNGs this repo already
+> serves, and a reader can zoom from the whole scene to about half its width
+> before the elevation data runs out. That zoom limit is set by the source
+> measurements, not by the delivery method, so scoping costs no zoom depth.
+> Everything below about the viewer, the framework decision, and provenance
+> chips still stands.
+
 ### What it needs
 
 1. **A site-framework decision first.** The site today is a static page. The

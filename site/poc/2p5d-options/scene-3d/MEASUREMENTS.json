@@ -1,0 +1,103 @@
+{
+  "scene": "Col de la Traversette (R1) window",
+  "window_deg": {
+    "west": 6.9,
+    "south": 44.6,
+    "east": 7.25,
+    "north": 44.82
+  },
+  "source": "1-arc-second tiles, SOURCES.md section 3; no render grid used",
+  "source_samples": [
+    793,
+    1261
+  ],
+  "source_spacing_m": {
+    "east_west": 22.0,
+    "north_south": 30.7
+  },
+  "window_ground_width_km": 27.69,
+  "texture": {
+    "pixels": [
+      1261,
+      793
+    ],
+    "jpeg_bytes": 238722,
+    "png_bytes": 1521249,
+    "jpeg_quality": 88
+  },
+  "viewport_px_assumed": 1600,
+  "px_per_sample_thresholds": {
+    "soft": 4.0,
+    "hard": 8.0
+  },
+  "representative_stride": 3,
+  "deviation_metric_note": "mesh-versus-source surface fidelity in metres; not an elevation figure about any place and never displayed to a reader",
+  "levels": [
+    {
+      "stride": 1,
+      "vertices": 999973,
+      "triangles": 1995840,
+      "glb_bytes": 44189504,
+      "max_deviation_m": 0.0,
+      "rms_deviation_m": 0.0,
+      "sample_spacing_m": 30.7,
+      "soft_limit_view_km": 12.29,
+      "hard_limit_view_km": 6.14
+    },
+    {
+      "stride": 2,
+      "vertices": 250507,
+      "triangles": 498960,
+      "glb_bytes": 11237620,
+      "max_deviation_m": 88.0,
+      "rms_deviation_m": 2.97,
+      "sample_spacing_m": 61.4,
+      "soft_limit_view_km": 24.57,
+      "hard_limit_view_km": 12.29
+    },
+    {
+      "stride": 3,
+      "vertices": 111565,
+      "triangles": 221760,
+      "glb_bytes": 5132376,
+      "max_deviation_m": 105.8,
+      "rms_deviation_m": 4.83,
+      "sample_spacing_m": 92.1,
+      "soft_limit_view_km": 36.86,
+      "hard_limit_view_km": 18.43
+    },
+    {
+      "stride": 4,
+      "vertices": 62884,
+      "triangles": 124740,
+      "glb_bytes": 2246072,
+      "max_deviation_m": 152.2,
+      "rms_deviation_m": 6.69,
+      "sample_spacing_m": 122.9,
+      "soft_limit_view_km": 49.14,
+      "hard_limit_view_km": 24.57
+    },
+    {
+      "stride": 6,
+      "vertices": 28063,
+      "triangles": 55440,
+      "glb_bytes": 1133848,
+      "max_deviation_m": 167.0,
+      "rms_deviation_m": 10.81,
+      "sample_spacing_m": 184.3,
+      "soft_limit_view_km": 73.72,
+      "hard_limit_view_km": 36.86
+    },
+    {
+      "stride": 8,
+      "vertices": 15900,
+      "triangles": 31284,
+      "glb_bytes": 745652,
+      "max_deviation_m": 161.2,
+      "rms_deviation_m": 15.42,
+      "sample_spacing_m": 245.7,
+      "soft_limit_view_km": 98.29,
+      "hard_limit_view_km": 49.14
+    }
+  ]
+}
