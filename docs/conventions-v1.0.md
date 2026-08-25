@@ -6,7 +6,7 @@ Version 1.0, approved 2026-08-09. Supersedes v0.2 (retained as `conventions-v0.2
 
 Every factual or narrative element in the experience carries exactly one of three markers. They are mutually exclusive and always visible to the reader.
 
-**Attested.** Present in the sources held in the fact base (the NotebookLM notebook, plus the clean Polybius and Livy reference texts). Every attested claim carries an anchor: source name plus locator (book and chapter for ancient texts, e.g. Polybius 3.54; page or section for modern works). A claim without an anchor does not ship as attested.
+**Attested.** Present in the sources held in the fact base (the local research library `~/Claude/research/carthaginian-conflicts/`, migrated from the NotebookLM notebook and retained as fallback only, plus the clean Polybius and Livy reference texts). Every attested claim carries an anchor: source name plus locator (book and chapter for ancient texts, e.g. Polybius 3.54; page or section for modern works). A claim without an anchor does not ship as attested.
 
 **Inferred.** Reasoned from attested material. The display states both the inference and what it rests on. Example pattern: "The column probably stretched over 15 km (inferred from attested army size and standard march-column spacing, with both anchors shown)." An inference that can't name its attested basis is not an inference, it's invention, and it doesn't ship.
 

@@ -19,7 +19,7 @@ what the claim says before it is written down. This supersedes the older practic
 
 ## Fact base
 
-- Notebook: **Carthaginian Conflicts** (`f1b5cae8-7652-4e4e-9ae0-d6bf8f74d3e8`), 149 sources.
+- Source library: **`~/Claude/research/carthaginian-conflicts/`** (149 sources, indexed in `index.md`; migrated from the NotebookLM "Carthaginian Conflicts" notebook `f1b5cae8-7652-4e4e-9ae0-d6bf8f74d3e8` at research-library M3 2026-08-25, notebook retained as fallback only).
 - Ancient primary texts used for this chapter:
   - **Polybius**, *Histories* (Shuckburgh trans., Gutenberg Vol. I) — `afc8c222-7f8d-4ea6-af7e-bd290815b984`. Book III chs. 42–56 carry the whole crossing.
   - **Livy**, *History of Rome* Books XXI–XXV (Church & Brodribb trans., Macmillan; scanned pdf) — `abe8d234-1163-4918-95da-494dee9cfba3`. Book XXI carries the crossing. OCR text; quotes transcribed faithfully, line-break hyphenation joined, words unchanged.
