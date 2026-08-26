@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+"""Project-method pre-commit hook (git). Enforces three commit-time rules from
+project-method/references/hooks.md. Ships with the project template; every project
+copied from the template inherits it via `git config core.hooksPath .githooks`.
+
+Rules enforced (a violation blocks the commit with exit 1):
+
+  1. PLAN.md and LOG.md updated before a commit lands
+        If the staged set touches specs/, checks/, or SOURCES.md, then PLAN.md or
+        LOG.md must also be staged. State that moves without the plan or log moving
+        is the drift this catches.
+  2. No scope change without a CHANGES.md row
+        If BRIEF.md's Scope or Non-goals section changed versus HEAD, CHANGES.md must
+        be staged in the same commit.
+  3. CLAUDE.md under 40 lines
+        If CLAUDE.md is staged and exceeds 40 lines, block.
+
+Fails OPEN on its own internal error (prints a warning, exit 0): a hook that blocked
+every commit on its own bug would be worse than the rule it enforces. A genuine rule
+violation still exits 1. Edit this master in the template; projects inherit a copy.
+"""
+import subprocess
+import sys
+
+CLAUDE_MD_MAX_LINES = 40
+
+
+def git(*args):
+    return subprocess.run(["git", *args], capture_output=True, text=True).stdout
+
+
+def staged_names():
+    out = git("diff", "--cached", "--name-only")
+    return [l.strip() for l in out.splitlines() if l.strip()]
+
+
+def head_exists():
+    return subprocess.run(["git", "rev-parse", "--verify", "HEAD"],
+                          capture_output=True, text=True).returncode == 0
+
+
+def section(text, heading):
+    """Return the block from '## heading' up to the next '## ' heading (or EOF)."""
+    lines = text.splitlines()
+    out, capturing = [], False
+    for line in lines:
+        if line.strip().startswith("## "):
+            if capturing:
+                break
+            if line.strip()[3:].strip().lower() == heading.lower():
+                capturing = True
+                continue
+        if capturing:
+            out.append(line)
+    return "\n".join(out).strip()
+
+
+def blob(ref, path):
+    r = subprocess.run(["git", "show", f"{ref}:{path}"],
+                       capture_output=True, text=True)
+    return r.stdout if r.returncode == 0 else ""
+
+
+def main():
+    names = staged_names()
+    if not names:
+        return 0
+    violations = []
+
+    # Rule 1: PLAN/LOG must move when structure or sources move.
+    structural = [n for n in names
+                  if (n.startswith("specs/") or n.startswith("checks/") or n == "SOURCES.md")
+                  and not n.endswith(".gitkeep")]
+    if structural and "PLAN.md" not in names and "LOG.md" not in names:
+        violations.append(
+            "specs/, checks/, or SOURCES.md changed but neither PLAN.md nor LOG.md is "
+            "staged. Update the plan or the log in the same commit "
+            f"(changed: {', '.join(structural)}).")
+
+    # Rule 2: scope change needs a CHANGES.md row.
+    if "BRIEF.md" in names and "CHANGES.md" not in names:
+        old = blob("HEAD", "BRIEF.md") if head_exists() else ""
+        new = blob("", "BRIEF.md")  # staged index version (":BRIEF.md")
+        for sec in ("Scope", "Non-goals"):
+            if section(old, sec) != section(new, sec):
+                violations.append(
+                    f"BRIEF.md '{sec}' changed but CHANGES.md is not staged. A scope "
+                    "change needs a CHANGES.md row first (project-method Ritual 3).")
+                break
+
+    # Rule 3: CLAUDE.md under 40 lines.
+    if "CLAUDE.md" in names:
+        content = blob("", "CLAUDE.md")  # staged index version (":CLAUDE.md")
+        n = len(content.splitlines())
+        if n > CLAUDE_MD_MAX_LINES:
+            violations.append(
+                f"CLAUDE.md is {n} lines; the limit is {CLAUDE_MD_MAX_LINES}. "
+                "Project how-tos go in .claude/skills/, never in CLAUDE.md.")
+
+    if violations:
+        sys.stderr.write("\npre-commit blocked (project-method):\n")
+        for v in violations:
+            sys.stderr.write(f"  - {v}\n")
+        sys.stderr.write("\nFix the above and re-commit.\n")
+        return 1
+    return 0
+
+
+try:
+    sys.exit(main())
+except Exception as exc:  # fail open on internal error, never block spuriously
+    sys.stderr.write(f"pre-commit hook internal error (allowing commit): {exc}\n")
+    sys.exit(0)

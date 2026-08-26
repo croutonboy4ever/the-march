@@ -1,0 +1,39 @@
+{
+  "//": "Project-level settings for a project-method folder. Carries ONLY what differs from ~/.claude/settings.json: the three project-method enforcement hooks. Global allow/deny/ask rules and the machine-wide PreToolUse guards (bash-shape-guard, unversioned-write-guard, notion-canonical-guard) and the global SessionStart injection are inherited and NOT restated here (duplicated allow rules are a known friction). The git pre-commit rule lives in .githooks/pre-commit, wired via `git config core.hooksPath .githooks`.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-files.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/frozen-spec-guard.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/state-freshness.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
