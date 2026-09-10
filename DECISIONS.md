@@ -12,3 +12,9 @@ Append-only. One line per decision.
 - 2026-08-26 | Spock: defining the win as less than a shipped chapter (an internal draft or a single scene) was weighed and set aside; Tony chose full P7 ship | The set-aside option proves the method faster but never tests the real reader | kickoff adversarial pass
 - 2026-08-26 | Source grades accepted: Notion hub, Decision Log, conventions-v1.0, build-plan-v1.0, data/geo/SOURCES.md, and the ch-02 claims ledger as Definitive; route-candidates.md, the roads memo, POC and art NOTES, and README as Informative; prior Claude chats as leads only; conventions-v0.2 as Stale | source intake | kickoff
 - 2026-08-26 | Prior locked project decisions carried forward unchanged from the Notion Decision Log (container form, real geography, own identity, standalone chapters, base register Direction B, roads staged, land-cover class handling, world state follows attestation); this kickoff does not re-decide them | source intake | kickoff
+- 2026-09-10 | The ten dispositions of the Astra review are recorded in CHANGES.md (rows 1 to 10) | Astra review; Tony accepted defaults
+- 2026-09-10 | Build plan v1.1 adds the P2a reading test inside P2 | Astra review; Tony accepted defaults
+- 2026-09-10 | 3D is out of The Crossing and parked to Cannae P3, which closes the PLAN open question "2.5D / 3D approach for scenes" for this chapter as flat shaded relief | Astra review; Tony accepted defaults
+- 2026-09-10 | Astra holds the reviewer role at P1 and P2a, not a builder role | Astra review; Tony accepted defaults
+- 2026-09-10 | NotebookLM is retired as a reference: the local research library ~/Claude/research/carthaginian-conflicts/ is the only fact base and no fallback is named | Astra review; Tony accepted defaults
+- 2026-09-10 | Conventions v1.1 issued for the NotebookLM removal only, with archaeology logged as an open question | Astra review; Tony accepted defaults

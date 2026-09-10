@@ -1,5 +1,5 @@
 # The March: Sources
-Updated: 2026-08-26 by Claude Code
+Updated: 2026-09-10 by Claude Code
 
 ## Honest assessment
 Settled by sources: the objective, the container form (interactive web, map-driven spine), the real-geography rule, the own-identity decision, the standalone-chapter rule, the prototype = The Crossing, the eight-phase build method, the accuracy and provenance conventions, the current position (ch 02, P1 next), and the locked design decisions (base register Direction B, roads staged, land-cover handling, world state follows attestation).
@@ -42,6 +42,7 @@ Claude-generated material (NOT verified history; must always carry a marker or a
 | 12 | Prior Claude chats (14+ sessions) | working sessions | 2026-08-09 to 25 | via transcript search | Leads only | CCD session history |
 | 13 | Tony interview answers (Q1 to Q4) | Tony's own recorded decisions | 2026-08-26 | original (this session) | Definitive | this session / DECISIONS.md |
 | 14 | conventions-v0.2.md | superseded conventions | 2026-08-09 | original | Stale | docs/conventions-v0.2.md |
+| 15 | the-march-opportunities-for-consideration (Astra review) | advisory review doc | 2026-09-10 | original (advisory input; leads only, never a fact source) | Informative | docs/the-march-opportunities-for-consideration-2026-09-10.md |
 
 ## Extracted statements
 | Informs | Statement | Source # | Where | Verbatim? | Grade | Conflicts with |
@@ -63,7 +64,7 @@ Claude-generated material (NOT verified history; must always carry a marker or a
 
 ## Conflicts
 - Chapter count: the Notion hub says "thirteen chapters" (# 1); build-plan section 3 and the `data/content/` folders (00 to 11) say twelve (# 4). Open, left for Tony, not resolved here.
-- Fact-base pointer: the Notion hub Links name the NotebookLM notebook as the fact base (# 1); the repo (claims ledger, # 6) now points at the local carthaginian-conflicts library. Open as a forward-only note; the canonical hub is not edited without Tony's explicit instruction.
+- Fact-base pointer: CLOSED 2026-09-10. The Notion hub Links were repointed to the local carthaginian-conflicts library on Tony's instruction, and NotebookLM is retired as a reference (DECISIONS.md 2026-09-10). The repo and the hub now agree.
 
 ## Stale
 | Statement | Source # | Superseded by |

@@ -1,5 +1,5 @@
 # The March: Brief
-Kickoff: 2026-08-26   Last reviewed: 2026-08-26
+Kickoff: 2026-08-26   Last reviewed: 2026-09-10
 
 ## Objective
 The Second Punic War is told as a map-driven interactive web experience for newcomers, where every factual and narrative element shows whether it is attested, inferred, or imagined, delivered chapter by chapter with The Crossing proven first on a real reader.
@@ -31,7 +31,7 @@ In: an interactive web experience on the Second Punic War (218 to 202 BC), a map
 
 ## Assumptions and dependencies
 - Assumes The Crossing can be drafted as prose that is at once newcomer-readable and preflight-clean. This has never been demonstrated; every artifact to date is pipeline or renders. If it cannot, the pipeline stalls at P2 Draft. (Named by the adversarial pass, 2026-08-26.)
-- Depends on the local fact base `~/Claude/research/carthaginian-conflicts/` (149 sources, ancient primaries plus scholarship). If unreachable, claim verification and preflight halt; the NotebookLM notebook is a fallback only.
+- Depends on the local fact base `~/Claude/research/carthaginian-conflicts/` (149 sources, ancient primaries plus scholarship). If unreachable, claim verification and preflight halt. It is the only fact base; no fallback.
 - Depends on the committed geo-data pipeline (Pleiades, AWMC, DEM, land cover) under `data/geo/`. If a processed file is lost it is reproducible from a committed script over a recorded raw download.
 - Depends on Netlify for the P7 deploy (not yet configured). If absent, any static host can serve the `site/` directory.
 - Depends on the Notion hub as source of truth for position and decisions. If unreachable, position also lives in the PLAN.md Current focus line and this repo's LOG.md.
@@ -40,7 +40,7 @@ In: an interactive web experience on the Second Punic War (218 to 202 BC), a map
 - Surfaces: must run on a phone and a Mac. A static site, no build step, no framework until chapters exist (the README revisit clause, trigger "when chapters exist").
 - Maintenance tolerance: low. Nothing that adds a permanent maintenance surface is adopted ahead of need.
 - Cost: free or near-free tooling (public data sources, Netlify free tier, private GitHub).
-- Accuracy: governed by `docs/conventions-v1.0.md`; nothing ships without its preflight gate.
+- Accuracy: governed by `docs/conventions-v1.1.md`; nothing ships without its preflight gate.
 
 ## Kill condition
 A passion project with no external deadline: parked, never killed, and parked only on idleness, never on the idea. Idle window: if the folder goes 60 days with no commit and no session, the next session does not silently resume. It runs a kill-or-park decision with Tony (park with a wake condition, or drop). Parking is a recorded state with a wake condition, so a stall becomes a logged decision instead of a lost thread.
