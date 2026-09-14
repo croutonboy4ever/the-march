@@ -6,7 +6,7 @@ Inputs in hand: `data/content/02/claims-ledger.md` (19 attested claims, P0 done)
 Missing: none. The build may start; freeze the criteria below first.
 
 ## What this builds
-The P1 beat sheet for The Crossing (chapter 02): the 19 ledger claims reordered into narrative order, each beat mapped to its TC ids, its map-journey module behaviour, and the geography it needs. Lands as `data/content/02/chapter-spine.md`, the filename the Notion P1 and Astra-review tasks name.
+The P1 beat sheet for The Crossing (chapter 02): the 19 ledger claims reordered into narrative order, each beat mapped to its TC ids, its map-journey module behaviour, and the geography it needs. Lands in `data/content/02/` (for example `beat-sheet.md`).
 
 ## Acceptance criteria (frozen at build start, read-only during build)
 1. Every beat cites at least one TC id from the claims ledger, or is explicitly marked imagined.

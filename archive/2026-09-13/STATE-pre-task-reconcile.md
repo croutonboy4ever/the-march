@@ -1,5 +1,5 @@
 # The March: State
-Updated: 2026-09-13 by Claude Code   Last known-good: 143cc3b
+Updated: 2026-09-10 by Claude Code   Last known-good: 88ba9b0
 
 ## Structure
 - Position (mirrors the Notion hub, which stays the single canonical place): The Crossing (ch 02) · P1 Spine · P0 gate passed 2026-08-11 · next P2 Draft.
