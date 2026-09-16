@@ -2,7 +2,7 @@
 Milestone: 1   Change row: CHANGES.md rows 1 and 2   Status: draft
 
 ## Pre-build gate
-Inputs in hand: `data/content/02/claims-ledger.md` (19 attested claims, P0 done); `docs/build-plan-v1.1.md` section 5 (phase definition and the two disagreements to land as scenes); `docs/conventions-v1.2.md` section 2 (disagreement as content).
+Inputs in hand: `data/content/02/claims-ledger.md` (19 attested claims, P0 done); `docs/build-plan-v1.1.md` section 5 (phase definition and the two disagreements to land as scenes); `docs/conventions-v1.1.md` section 2 (disagreement as content).
 Missing: none. The build may start; freeze the criteria below first.
 
 ## What this builds

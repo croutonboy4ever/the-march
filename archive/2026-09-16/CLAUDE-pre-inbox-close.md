@@ -2,7 +2,7 @@
 
 Read PLAN.md and STATE.md before doing anything. BRIEF.md is why this exists.
 Project method: project-method skill governs structure; build-engineer governs builds.
-Accuracy is canonical in docs/conventions-v1.2.md; the build method in docs/build-plan-v1.1.md.
+Accuracy is canonical in docs/conventions-v1.1.md; the build method in docs/build-plan-v1.1.md.
 
 ## Rules that never change
 - No build without a spec in specs/ with frozen acceptance criteria.
