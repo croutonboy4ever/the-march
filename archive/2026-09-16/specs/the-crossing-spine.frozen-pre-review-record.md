@@ -24,7 +24,7 @@ The P1 beat sheet for The Crossing (chapter 02): the 19 ledger claims reordered 
 `checks/the-crossing.md`, section P1. Manual reproduction: read the beat sheet against the claims ledger and confirm each criterion by inspection.
 
 ## Review
-Reviewer context: subagent (.claude/agents/reviewer.md), fresh context.   Result: 2026-09-16, criteria 1 to 9 pass, criterion 10 not met (awaiting Astra), so REVIEW: FAIL (10). Nine content findings (attribution slips at B7, B10, B15, B16; an unmarked imagined vantage at B16; unsourced camera and question wording at B4; a misleading day-count framing at B14; two question tags at B2, B11) were applied to `chapter-spine.md` after the review; the applied version has not been re-reviewed. Two spec-wording notes for the next amendment, criteria unchanged: criterion 4 "references a place" reads wider than the conventions section 7 camera rule (B15 renders disputed passes as candidates); criterion 7 defines no return consequence for downward transitions (the sheet uses "carried to").
+Reviewer context: subagent (.claude/agents/reviewer.md), fresh context.   Result: <date, pass/fail, notes>
 Astra independent review (beat sheet, by handoff; Tony gives Astra the files, no repo access):   Result: <date, notes>
 
 <!-- Status frozen 2026-09-16 at P1 build start. Criteria are read-only; a needed change stops the build and files a CHANGES.md row. -->

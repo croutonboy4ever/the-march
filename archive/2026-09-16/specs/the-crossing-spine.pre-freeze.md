@@ -1,5 +1,5 @@
 # Spec: the-crossing-spine
-Milestone: 1   Change row: CHANGES.md rows 1 and 2   Status: frozen
+Milestone: 1   Change row: CHANGES.md rows 1 and 2   Status: draft
 
 ## Pre-build gate
 Inputs in hand: `data/content/02/claims-ledger.md` (19 attested claims, P0 done); `docs/build-plan-v1.1.md` section 5 (phase definition and the two disagreements to land as scenes); `docs/conventions-v1.2.md` section 2 (disagreement as content).
@@ -24,7 +24,7 @@ The P1 beat sheet for The Crossing (chapter 02): the 19 ledger claims reordered 
 `checks/the-crossing.md`, section P1. Manual reproduction: read the beat sheet against the claims ledger and confirm each criterion by inspection.
 
 ## Review
-Reviewer context: subagent (.claude/agents/reviewer.md), fresh context.   Result: 2026-09-16, criteria 1 to 9 pass, criterion 10 not met (awaiting Astra), so REVIEW: FAIL (10). Nine content findings (attribution slips at B7, B10, B15, B16; an unmarked imagined vantage at B16; unsourced camera and question wording at B4; a misleading day-count framing at B14; two question tags at B2, B11) were applied to `chapter-spine.md` after the review; the applied version has not been re-reviewed. Two spec-wording notes for the next amendment, criteria unchanged: criterion 4 "references a place" reads wider than the conventions section 7 camera rule (B15 renders disputed passes as candidates); criterion 7 defines no return consequence for downward transitions (the sheet uses "carried to").
+Reviewer context: subagent (.claude/agents/reviewer.md), fresh context.   Result: <date, pass/fail, notes>
 Astra independent review (beat sheet, by handoff; Tony gives Astra the files, no repo access):   Result: <date, notes>
 
-<!-- Status frozen 2026-09-16 at P1 build start. Criteria are read-only; a needed change stops the build and files a CHANGES.md row. -->
+<!-- Status is draft. The building session freezes these criteria (Status: frozen) before starting P1. -->
