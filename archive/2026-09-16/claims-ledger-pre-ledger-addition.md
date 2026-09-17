@@ -124,7 +124,6 @@ corpus source giving a different account with its own anchor, or "none found in 
 - **Source ID:** `afc8c222` — Polybius 3.44–45
 - **Supporting text:** "the Romans and Celts lost a hundred and forty men, and the Numidians more than two hundred."
 - **Retrieved:** 2026-08-11
-- **Unit sizes, verbatim (added 2026-09-16, CHANGES row 11):** Polybius 3.41 (the Roman party): "he sent out a reconnoitring party, consisting of three hundred of his bravest horse; joining with them as guides and supports some Celts". Polybius 3.44 (the Numidian party): "he detached five hundred Numidian horsemen to reconnoitre the enemy and find out their position, their numbers, and what they were going to do". Located by content search in the local library copy, `sources/116_...Polybius-Vol.-I...md`, chapter markers 41 and 44 confirmed in that file.
 - **Contradicting sources:** none found in corpus.
 
 ### TC-07 — Scipio arrives three days late
@@ -142,7 +141,6 @@ corpus source giving a different account with its own anchor, or "none found in 
 - **Supporting text:** "after four days' march from the passage of the Rhone, Hannibal arrived at the place called the Island ... the Rhone and Isara flowing on either side of it ... he found two brothers engaged in a dispute for the royal power ... The elder sought his alliance ... he consented ... exchanged all their old and damaged weapons for new ones ... gave most of the men new clothes and boots ... he acted with his army as their rear-guard, and secured them a safe passage as far as the foot of the pass."
 - **Retrieved:** 2026-08-11
 - **Contradicting sources:** Livy 21.31 (`abe8d234`) **agrees on the event and adds a name (confirmed):** the elder brother is **Brancus**, and the tribe is the **Allobroges** — "Two brothers were contending for the throne. The elder, who had previously been king, Brancus by name ... Hannibal ... restored the elder brother to power". Polybius leaves the brother unnamed.
-- **Also attested (Livy 21.31, added 2026-09-16, CHANGES row 11):** "In four days' march he reached the Island. Here the Isere and the Rhone ... unite in one stream, and the plains between have received the name of the Island. In the neighbourhood are settled the Allobroges". Located by content search in the local library copy `sources/63_Livy-Books-21-to-25.md` (OCR; line-break hyphenation and scan noise removed, words unchanged, ellipsis marks an omitted clause). Livy agrees with Polybius on the four days and the name.
 
 ### TC-09a — Route to the ascent (Polybius)
 - **Claim:** From the Island Hannibal continued up the river bank, covering 800 stades in ten days, then began the ascent of the Alps.
@@ -261,15 +259,6 @@ corpus source giving a different account with its own anchor, or "none found in 
 - **Retrieved:** 2026-08-11
 - **Contradicting sources:** the pass identification is itself contested — Livy 21.38 (`abe8d234`) explicitly disputes the Poenine Pass and Caelius Antipater's "heights of Cremo": "the vulgar belief that he marched over the Poenine Pass ... I wonder, too, that Caelius says that he crossed by the heights of Cremo. Both these passes would have brought him, not to the Taurini, but ... to the Libuan Gauls." Polybius names no pass. See gap G-1.
 
-### TC-20 — Army strength at the Rhone (Polybius)
-- **Numbering note:** added 2026-09-16 (CHANGES row 11) and numbered after TC-19 so existing ids stay stable. Narrative position: at the Rhone crossing, alongside TC-01.
-- **Claim:** When Hannibal crossed the Rhone he had 38,000 infantry and more than 8,000 cavalry; Polybius says he lost nearly half in the pass.
-- **Marker:** attested
-- **Source ID:** `afc8c222` — Polybius 3.60 (local library copy `sources/116_...Polybius-Vol.-I...md`, chapter marker 60 confirmed in that file)
-- **Supporting text:** "So that whereas, when Hannibal crossed the Rhone, he had thirty-eight thousand infantry, and more than eight thousand cavalry, he lost nearly half in the pass, as I have shown above".
-- **Retrieved:** 2026-09-16
-- **Contradicting sources:** Livy gives no strength at the Rhone. A search of `sources/63_Livy-Books-21-to-25.md` for troop figures in Book XXI finds them at the Ebro (21.23: ninety thousand infantry and twelve thousand cavalry, before garrisons and dismissals) and on arrival (21.38, TC-17b), not at the Rhone. Livy 21.38 reports Cincius's figure of 36,000 lost after crossing the Rhone (TC-17b), which differs from Polybius's "nearly half". Army strength is a named standing debate (conventions §2, §4).
-
 ## Coverage notes (checked, thin or silent)
 
 - **Nepos** (`46d26c93`, 3.4) compresses the whole crossing into the one sentence at
@@ -325,7 +314,6 @@ gaps shown as gaps).
 
 ## Status
 
-- **Amended 2026-09-16 (CHANGES row 11):** TC-20 added (Polybius 3.60, Rhone strength); TC-06 gains verbatim unit sizes (Polybius 3.41, 3.44); TC-08 gains Livy 21.31's naming of the Island. Now 20 attested claim entries. These three pulls came from the local research library files named in each entry, not from NotebookLM.
 - **Populated 2026-08-11; G-2 closed the same day.** 19 attested claim entries
   (TC-01…TC-19, incl. the 09/15/17 Polybius–Livy pairs), plus coverage notes.
 - Sources confirmed verbatim by content search (citation offsets were null and unused):
