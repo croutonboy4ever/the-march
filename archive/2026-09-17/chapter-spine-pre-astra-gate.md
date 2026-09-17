@@ -1,8 +1,8 @@
 # Chapter 02, The Crossing: Chapter Spine (P1 beat sheet)
 
 Built 2026-09-16 against `specs/the-crossing-spine.md` (frozen 2026-09-16). Structure only, no prose.
-Every beat draws on `claims-ledger.md` (TC-01 to TC-20; TC-20 added 2026-09-16, CHANGES row 11) and, for the pass debate, `route-candidates.md` (R1 to R7, all inferred: six modern identifications and one ancient tradition, R5).
-Status: built 2026-09-16. Reviewer subagent run (criteria 1 to 9 pass; its findings applied). Astra's independent review recorded 2026-09-17 (`chapter-spine-review-2026-09-17.md`) and its findings dispositioned the same day: B4 cut and TC-06 folded into B6; B14 question reworded; B15 and B16 layered so the debates open on request; the TC-06 count corrected in the ledger (CHANGES row 12). Criterion 4 wording amended on Tony's decision (CHANGES row 13). 16 live beats (B4 id retired, others unchanged). Reviewer subagent re-review 2026-09-17: PASS, criteria 1 to 10. P1 gate passed 2026-09-17.
+Every beat draws on `claims-ledger.md` (TC-01 to TC-20; TC-20 added 2026-09-16, CHANGES row 11) and, for the pass debate, `route-candidates.md` (R1 to R7, all inferred modern scholarship).
+Status: built 2026-09-16. Reviewer subagent run (criteria 1 to 9 pass; its findings applied). Awaiting Astra's independent review (criterion 10). The P1 gate is not passed.
 
 ## Legend
 
@@ -45,8 +45,13 @@ Pleiades ids below were checked against `data/geo/processed/pleiades-places-corr
 - **Geography:** Rhodanus; the river island about 200 stades / ~25 miles upstream (relative distance along the river, no pinned island); the Gauls' camp on the far bank (unlocated)
 - **Camera:** crossing zone and Hanno's line of march up the bank (Polybius 3.42–43, Livy 21.27–28); army identifier splits here (main army / Hanno's detachment, "chiefly Spaniards" per Livy)
 
-### B4. Cut 2026-09-17, folded into B6
-- Astra's review (2026-09-17) failed criterion 6 here: the view showed Roman horse within reach but did not explain how position produced the losses, and the casualty tally had the weakest tie to the journey. TC-06 now sits in B6, where Roman proximity leads into the empty camp. The id is kept so references to B5 to B17 stay stable.
+### B4. First contact with Roman horse
+- **TC:** TC-06
+- **Reader sees:** 500 Numidian scouts against 300 Roman and Celtic horse; 140 Romans and Celts dead, more than 200 Numidians dead.
+- **Question (P):** Roman horse is already within reach of the army's scouts; what does the first clash cost each side?
+- **Module:** held view (casualty figures with anchor) · **Interaction:** quiet
+- **Geography:** crossing zone at regional scale; the skirmish site is not in the ledger, so no site pin
+- **Camera:** held on the crossing zone at regional scale, where the Numidian party was sent out from the camp (Polybius 3.44); the skirmish site is not in the ledger, so the camera does not travel to it
 
 ### B5. Elephants on earthed rafts (candidate: Rhone raft construction, placed) ⇄
 - **TC:** TC-05
@@ -57,12 +62,12 @@ Pleiades ids below were checked against `data/geo/processed/pleiades-places-corr
 - **Camera:** crossing-zone bank (Polybius 3.46, Livy 21.28)
 
 ### B6. The consul finds an empty camp ⇄
-- **TC:** TC-06, TC-07
-- **Reader sees:** first, a panel (not a map marker) for the cavalry clash already fought, site not given by the sources: 500 Numidian scouts against Scipio's party of 300 Roman horse with some Celts as guides (uncounted); 140 Romans and Celts dead, more than 200 Numidians dead. Then Scipio reaching the crossing three days after Hannibal left, the lines abandoned; the army's marker three days up the river.
-- **Question (P):** Roman horse had already clashed with the army's scouts; why is there still no battle at the Rhone?
-- **Module:** map move (the skirmish as an off-map panel with its casualty anchor, no marker and no site pin; then the time offset: two markers, three days apart) · **Interaction:** quiet
-- **Geography:** Rhodanus crossing zone; the Rhone valley northward. The skirmish has no geography: its site is not in the ledger, so nothing is drawn for it
-- **Camera:** campaign scale over the crossing zone; it does not travel to or mark a skirmish site. Then the abandoned camp, where both sources put Scipio's force (Polybius 3.49, Livy 21.32); then Hannibal's marker on the march
+- **TC:** TC-07
+- **Reader sees:** Scipio reaching the crossing three days after Hannibal left, the lines abandoned; the army's marker three days up the river.
+- **Question (W):** why is there no battle at the Rhone?
+- **Module:** map move (time offset: two markers, three days apart) · **Interaction:** quiet
+- **Geography:** Rhodanus crossing zone; the Rhone valley northward
+- **Camera:** the abandoned camp, where both sources put Scipio's force (Polybius 3.49, Livy 21.32); then Hannibal's marker on the march
 
 ### B7. The Island: a succession quarrel settled ⇄
 - **TC:** TC-08
@@ -123,17 +128,16 @@ Pleiades ids below were checked against `data/geo/processed/pleiades-places-corr
 ### B14. The blocking rock (standing disagreement 2, scene)
 - **TC:** TC-15a, TC-15b
 - **Reader sees:** the column stopped at a broken ledge. Polybius: a landslip about a stade and a half long, a road cut into the cliff face, one day for horses and pack animals, three more days for the elephants. Livy: a sheer break of a thousand feet, felled trees fired against the rock, vinegar poured on, the stone split with iron, winding tracks, four days at the spot.
-- **Question (P):** how does the army get past a broken ledge that stops the whole column?
+- **Question (P):** how does the army get past rock it cannot go around?
 - **Module:** disagreement scene · **Interaction:** reader toggles Polybius / Livy / both; the method is what differs (cutting vs fire and vinegar); the time at the rock is four days in both
 - **Geography:** the landslip on the descent, unlocated (G-1); attested dimensions only (a stade and a half long; a thousand feet deep)
 - **Camera:** the ledge (Polybius 3.54–55, Livy 21.36–37)
 
 ### B15. Into Italy: which tribe, which pass (G-1 debate) ⇄
 - **TC:** TC-18, TC-19; G-1; route-candidates R1–R7
-- **Reader sees (default):** the army down on the Italian side, with its two tribal readings: among the Insubres (Polybius) / among the Taurini (Livy). One line says why the pass is unknown: Polybius names no pass, Livy argues against two named routes, and Nepos gives only "the Graian pass". Seven candidate passes (six modern identifications and one ancient tradition, R5, with no modern backer) are drawn as equal marks, each carrying the inferred marker, and none agreed.
-- **Reader opens (debate panel):** Livy arguing from the Taurini against the Poenine Pass and Caelius's "heights of Cremo"; Nepos naming only the "Graian pass"; then each candidate, marked inferred, with backers where recorded (R5 and R7 have none) and the anchors each backer cites. Roster, backers and anchors come from `route-candidates.md`, not the claims ledger, and stay unverified until spot-checked against the fact base (carried to P2).
+- **Reader sees:** the army down on the Italian side. Polybius puts it among the Insubres; Livy puts it among the Taurini and argues from that against the Poenine Pass and Caelius's "heights of Cremo". Nepos names only the "Graian pass". Seven modern candidates are shown, all marked inferred, with backers where recorded (R5 and R7 have none) and the ancient anchors each backer cites.
 - **Question (W):** where did the army come down, and why can nobody say which pass it crossed?
-- **Module:** disagreement scene (debate, unresolved), layered so arrival reads before the debate · **Interaction:** reader opens the debate panel, then taps a candidate for its backers and anchors; no candidate is selected by default and none is drawn heavier
+- **Module:** disagreement scene (debate, unresolved) · **Interaction:** reader taps a candidate to open its backers and anchors; no candidate is selected by default and none is drawn heavier
 - **Geography:** Taurini 383794; Insubres have no tribe-label id in the corridor extract (the only match is Victumulae 383821, a settlement, not used); Poeninus 167871 (R5, which Livy 21.38 disputes); *Alpis Graia 167639 (R4; matching Nepos's "Graian" to this col is a modern identification, so inferred); R1 Traversette, R2 Clapier, R3 Montgenèvre, R6 Larche, R7 Mont Cenis rendered as candidates only
 - **Camera:** campaign scale over the arc of candidates; it enters no candidate col (conventions §6)
 
@@ -141,8 +145,7 @@ Pleiades ids below were checked against `data/geo/processed/pleiades-places-corr
 - **TC:** TC-17a, TC-17b, TC-20; anchors for the inference: TC-10, TC-14, TC-05
 - **Reader sees:** the surviving army going by, seen from beside the line of march (an imagined vantage, labelled; the watcher is not a character and asserts nothing). Polybius: 12,000 Libyan and 8,000 Iberian foot and no more than 6,000 horse, from Hannibal's own column at Lacinium. Livy reports other writers' reckonings, from 20,000 foot and 6,000 horse up to 100,000 and 20,000, and Cincius's 80,000 and 10,000, which Livy rejects as counting Gauls and Ligurians; Cincius also has Hannibal losing 36,000 after the Rhone. For comparison the panel keeps Polybius's strength at the Rhone (38,000 foot, 8,000+ horse) and his "nearly half" lost in the pass. The column's length is an inferred calculation with its anchors shown; pack-animal and elephant counts on arrival are shown as unknown.
 - **Question (S):** what would it have looked like to watch this army pass?
-- **Default view:** the column going by with the strength panel closed, reading "strength: four figures, the sources disagree"; the view shows what is attested without a number (infantry, cavalry, the survivors of the descent) and the column's length as not yet sized. No figure, no Rhone comparison and no column length shows until the reader opens the panel, so B16 does not stack a second debate on top of B15.
-- **Module:** held view with an inferred calculation panel · **Interaction:** reader opens the panel and switches between the figures (Polybius / lowest reckoning / highest reckoning / Cincius, rejected by Livy), each labelled with who gave it; the column length recomputes and every figure keeps its anchor; a Rhone / arrival switch on the Polybius figures shows the column before and after the crossing
+- **Module:** held view with an inferred calculation panel · **Interaction:** reader switches between the figures (Polybius / lowest reckoning / highest reckoning / Cincius, rejected by Livy), each labelled with who gave it; the column length recomputes and every figure keeps its anchor; a Rhone / arrival switch on the Polybius figures shows the column before and after the crossing
 - **Geography:** the foot of the descent on the Italian side, labelled with both tribal readings (Insubres / Taurini); no road rendered (conventions §6)
 - **Camera:** beside the arriving army (Polybius 3.56, Livy 21.38)
 - **Dependency for P2:** the ledger holds no spacing basis for a marching column. P2 either pulls a named modern basis from the fact base, which then enters as inferred with its work named, or the length displays as unknown and the view shows only the attested components.
@@ -165,7 +168,7 @@ Each triple lists the phase or date, the army identifier, and the place referenc
 |---|---|---|---|---|---|---|
 | T1 | B1→B2 | campaign → ground | at the Rhone, the two boat-gathering days (TC-02) | Hannibal's army, whole | Rhone crossing point, single stream, four days from the sea | carried to T4 |
 | T2 | B2→B3 | ground → regional | third night (Polybius) / first watch (Livy) to fifth night / "next day" | main army; Hanno's detachment splits off | crossing point + river island ~200 stades upstream | carried to T4 |
-| T3 | B3→B5 | regional → ground | after the fifth-night crossing; elephants still on the near bank | Hannibal's army (reunited, far bank); 37 elephants | crossing point | carried to T4 |
+| T3 | B4→B5 | regional → ground | after the fifth-night crossing; elephants still on the near bank | Hannibal's army (reunited, far bank); 37 elephants | crossing point | carried to T4 |
 | T4 | B5→B6 | ground → campaign | departure from the Rhone; Scipio +3 days | Hannibal's army; Scipio's consular force | crossing point → the Rhone valley northward | army strength on the marker, 38,000 foot and 8,000+ horse (TC-20, Polybius only); army and elephants across (TC-05); dead from the skirmish: 140 Romans and Celts, 200+ Numidians (TC-06); a Roman marker at the empty camp, three days behind (TC-07) |
 | T5 | B6→B7 | campaign → regional | four days' march from the crossing | Hannibal's army | the Island, Rhodanus–Isara confluence | carried to T6 |
 | T6 | B7→B8 | regional → campaign | leaving the Island | Hannibal's army, now escorted | the Island | army marker changes to re-armed, re-clothed, re-shod, with an escort to the foot of the pass (TC-08); no count shown, none attested |
@@ -174,7 +177,7 @@ Each triple lists the phase or date, the army identifier, and the place referenc
 | T9 | B15→B16 | campaign → ground | arrival in Italy | Hannibal's army "as survived" (TC-17a) | foot of the descent, both tribal readings | carried to T10 |
 | T10 | B16→B17 | ground → campaign | passage complete: 15 days; 5 months from New Carthage | Hannibal's army | the Italian side, both tribal readings | arrival strength on the army marker with every figure and anchor (TC-17a, TC-17b), including Cincius's 36,000 lost after the Rhone, set against Polybius's Rhone strength and "nearly half" lost in the pass (TC-20); no single figure is promoted |
 
-No transition: B9→B14 (ground, one unlocated place reference throughout).
+No transition: B3→B4 (regional), B9→B14 (ground, one unlocated place reference throughout).
 
 ## Opening three beats
 
@@ -184,22 +187,22 @@ No transition: B9→B14 (ground, one unlocated place reference throughout).
 | 2 | B2 | one concrete situation | quiet |
 | 3 | B3 | one interaction | night stepper |
 
-Quiet beats (marked above): B1, B2, B6, B7, B9, B10, B11, B12, B13, B17.
+Quiet beats (marked above): B1, B2, B4, B6, B7, B9, B10, B11, B12, B13, B17.
 
 ## Candidate beats
 
 | Candidate | Disposition | Reason (one line) |
 |---|---|---|
 | Rhone raft construction | **Placed as B5**, held view with an in-beat sources-disagree affordance, not a standalone disagreement scene | The two accounts agree on the raft (about 200 by 50 ft, earthed, females leading) and differ only on the count and on how fallen elephants reached shore, which is too narrow a difference to carry a scene. |
-| Roadside column passage | **Placed as B16**, held view with an inferred calculation, anchors shown | The ledger holds strength at the Rhone (TC-20) and on arrival (TC-17a/b); the view sits at arrival so the reader watches the column after its losses, with the Rhone figure as the comparison inside the strength panel; no road is rendered, and the length waits on a named spacing basis (P2 dependency). |
+| Roadside column passage | **Placed as B16**, held view with an inferred calculation, anchors shown | The ledger holds strength at the Rhone (TC-20) and on arrival (TC-17a/b); the view sits at arrival so the reader watches the column after its losses, with the Rhone figure as the comparison; no road is rendered, and the length waits on a named spacing basis (P2 dependency). |
 
 ## Standing disagreements and G-1
 
 | Item | Where | How it lands |
 |---|---|---|
 | Route: TC-09a vs TC-09b | B8 | own disagreement scene, both tracks, no default |
-| Blocking rock: TC-15a vs TC-15b | B14 | own disagreement scene, both methods (the time at the rock is four days in both), no default |
-| G-1: which modern pass | opens B8, carried as the unlocated place reference B9–B14, debated B15 | open debate; seven candidates, none selected; ancient arguments (Livy 21.38, Nepos 3.4) separate from the candidates (R1–R7, inferred; R5 is an ancient tradition with no modern backer) |
+| Blocking rock: TC-15a vs TC-15b | B14 | own disagreement scene, both methods and day counts, no default |
+| G-1: which modern pass | opens B8, carried as the unlocated place reference B9–B14, debated B15 | open debate; seven candidates, none selected; ancient arguments (Livy 21.38, Nepos 3.4) separate from modern (R1–R7, inferred) |
 | Also shown in-beat (not standing) | B3 timing, B5 elephants, B10 white rock, B15 tribe, B16 numbers | both readings and anchors visible; army strength is a named debate (conventions §2) |
 
 ## TC coverage
@@ -211,7 +214,7 @@ Quiet beats (marked above): B1, B2, B6, B7, B9, B10, B11, B12, B13, B17.
 | 03 | B3 | 10 | B9, B16 anchor | 17a | B16 |
 | 04 | B3 | 11 | B10 | 17b | B16 |
 | 05 | B5, B16 anchor | 12 | B11 | 18 | B15 |
-| 06 | B6 | 13 | B12 | 19 | B15 |
+| 06 | B4 | 13 | B12 | 19 | B15 |
 | 07 | B6 | 14 | B13, B16 anchor | G-1 | B8, B15 |
 | 08 | B7 | 15a | B14 | 20 | B1, B16, T4, T10 |
 
@@ -225,4 +228,4 @@ No beat is imagined-only. Imagined elements: the B10 and B13 vignettes (texture 
 | P2 | B15 candidate anchors come from `route-candidates.md`, still marked "to be spot-checked"; each is confirmed against the fact base before display |
 | P3 | How ground-scale views render where the place is unlocated (B9–B14) without inventing terrain (conventions §6) |
 | P3 | B12 vista: candidate-specific and labelled, or directional only |
-| P3 | Crossing point and the Island's extent are stretches or areas, not pins (the skirmish site is not drawn at all, B6); Insubres, Tricastini and the Padus lack label ids in the corridor extract |
+| P3 | Crossing point, skirmish site and the Island's extent are stretches or areas, not pins; Insubres, Tricastini and the Padus lack label ids in the corridor extract |

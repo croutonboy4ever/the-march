@@ -119,10 +119,9 @@ corpus source giving a different account with its own anchor, or "none found in 
 - **Contradicting sources:** Livy gives no count (the thirty-seven is Polybius's) and a different escape mechanism — the elephants' "weight kept them steady", not Polybius's raised trunks; Livy expressly flags "various traditions".
 
 ### TC-06 — Cavalry skirmish with Scipio's scouts
-- **Claim:** A 500-strong Numidian reconnaissance party clashed with Scipio's reconnoitring party of 300 Roman horse, joined by an uncounted party of Celts as guides and supports; the Romans and Celts lost 140 men, the Numidians more than 200.
-- **Corrected 2026-09-17 (CHANGES row 12):** the claim line previously read "300 Roman/Celtic horse", a combined total the supporting text does not give; reworded to match Polybius 3.41 verbatim below.
+- **Claim:** A 500-strong Numidian reconnaissance party clashed with Scipio's 300 Roman/Celtic horse; the Romans and Celts lost 140 men, the Numidians more than 200.
 - **Marker:** attested
-- **Source ID:** `afc8c222` — Polybius 3.41 (Roman party), 3.44–45 (Numidian party, losses)
+- **Source ID:** `afc8c222` — Polybius 3.44–45
 - **Supporting text:** "the Romans and Celts lost a hundred and forty men, and the Numidians more than two hundred."
 - **Retrieved:** 2026-08-11
 - **Unit sizes, verbatim (added 2026-09-16, CHANGES row 11):** Polybius 3.41 (the Roman party): "he sent out a reconnoitring party, consisting of three hundred of his bravest horse; joining with them as guides and supports some Celts". Polybius 3.44 (the Numidian party): "he detached five hundred Numidian horsemen to reconnoitre the enemy and find out their position, their numbers, and what they were going to do". Located by content search in the local library copy, `sources/116_...Polybius-Vol.-I...md`, chapter markers 41 and 44 confirmed in that file.
@@ -326,7 +325,6 @@ gaps shown as gaps).
 
 ## Status
 
-- **Corrected 2026-09-17 (CHANGES row 12):** TC-06 claim line reworded to its own verbatim text (300 Roman horse plus uncounted Celts). Still 20 attested claim entries.
 - **Amended 2026-09-16 (CHANGES row 11):** TC-20 added (Polybius 3.60, Rhone strength); TC-06 gains verbatim unit sizes (Polybius 3.41, 3.44); TC-08 gains Livy 21.31's naming of the Island. Now 20 attested claim entries. These three pulls came from the local research library files named in each entry, not from NotebookLM.
 - **Populated 2026-08-11; G-2 closed the same day.** 19 attested claim entries
   (TC-01…TC-19, incl. the 09/15/17 Polybius–Livy pairs), plus coverage notes.

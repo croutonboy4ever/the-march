@@ -1,5 +1,5 @@
 # The March: Plan
-Updated: 2026-09-17 by Claude Code
+Updated: 2026-09-16 by Claude Code
 
 ## Milestones
 | # | Milestone | Deliverable (thing you can open) | Done check | Status | Closed |
@@ -12,7 +12,7 @@ Updated: 2026-09-17 by Claude Code
 Status is one of: not started, in progress, blocked, done, parked.
 
 ## Current focus
-Milestone 1, P2 Draft, first half. P1 gate passed 2026-09-17: Astra's review recorded in the spine spec, every finding dispositioned (B4 cut into B6; TC-06 corrected, CHANGES row 12; criterion 4 reworded on Tony's decision, CHANGES row 13; B14, B15, B16 fixed), reviewer subagent re-review PASS on criteria 1 to 10. The beat sheet at `data/content/02/chapter-spine.md` has 16 live beats (B4 id retired), 10 scale transitions, disagreements at B8 and B14, G-1 open through B15. Next: write and freeze `specs/the-crossing-draft.md`, draft B1 to B3 only, preflight items 1 to 3, then stop for the P2a reading test. The paste-ready prompt is on the Notion P2 card. Carried to P2 from the spine: the B16 column-spacing basis, and the B15 candidate anchors spot-checked against the fact base before display. Do not open `site/poc/` or `data/geo/scripts/`: a commit touching those instead of `data/content/02/` is the relapse signal (see risks).
+Milestone 1, P1 Spine: beat sheet built 2026-09-16 at `data/content/02/chapter-spine.md` (17 beats, 10 scale transitions, both standing disagreements as scenes at B8 and B14, G-1 open through B15, both candidate beats placed). Spec `specs/the-crossing-spine.md` frozen 2026-09-16. The reviewer subagent passed criteria 1 to 9; its nine content findings were applied. The P1 gate is NOT passed: it waits on Astra's independent review (criterion 10), which Tony runs as a separate task by handing Astra the beat sheet, the claims ledger and the spec, then pastes the result into the next session to record in the spec Review block. P2 Draft does not start until then. Ledger amended the same day on Tony's instruction (CHANGES row 11): TC-20 Polybius 3.60 Rhone strength, TC-06 unit sizes, TC-08 Livy's Island; the spine was updated to use them before Astra's review. Do not open `site/poc/` or `data/geo/scripts/`: a commit touching those instead of `data/content/02/` is the relapse signal (see risks).
 
 ## Open questions
 | Question | Default if unanswered | Applies on |
